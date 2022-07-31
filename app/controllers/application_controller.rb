@@ -17,6 +17,8 @@ class ApplicationController < ActionController::Base
 
   impersonates :user
 
+  helper Turbo::Native::Navigation
+
   protected
 
   # To add extra fields to Devise registration, add the attribute names to `extra_keys`
