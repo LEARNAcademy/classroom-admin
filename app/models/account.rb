@@ -37,7 +37,6 @@ class Account < ApplicationRecord
 
   has_noticed_notifications
   has_one_attached :avatar
-  pay_customer
 
   validates :name, presence: true
   validates :domain, exclusion: {in: RESERVED_DOMAINS, message: :reserved}
@@ -87,13 +86,4 @@ class Account < ApplicationRecord
   rescue
     false
   end
-
-  # If you need to create some associated records when an Account is created,
-  # use a `with_tenant` block to change the current tenant temporarily
-  #
-  # after_create do
-  #   ActsAsTenant.with_tenant(self) do
-  #     association.create(name: "example")
-  #   end
-  # end
 end

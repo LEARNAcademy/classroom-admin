@@ -28,11 +28,6 @@ class AccountsController < Accounts::BaseController
     @account.account_users.new(user: current_user, admin: true)
 
     if @account.save
-      # Add any after-create functionality here
-      # ActsAsTenant.with_tenant(@account) do
-      #   # Create default records here...
-      # end
-
       # Automatically switch to the new account on the next request
       flash[:notice] = t(".created")
       switch
