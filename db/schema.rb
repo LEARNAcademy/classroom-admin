@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2021_10_02_195137) do
+ActiveRecord::Schema[7.0].define(version: 2021_04_19_210614) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -39,12 +39,11 @@ ActiveRecord::Schema[7.0].define(version: 2021_10_02_195137) do
   end
 
   create_table "accounts", force: :cascade do |t|
-    t.string "name", null: false
+    t.string "name"
     t.bigint "owner_id"
     t.boolean "personal", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.text "extra_billing_info"
     t.string "domain"
     t.string "subdomain"
     t.index ["owner_id"], name: "index_accounts_on_owner_id"
@@ -140,111 +139,6 @@ ActiveRecord::Schema[7.0].define(version: 2021_10_02_195137) do
     t.index ["recipient_type", "recipient_id"], name: "index_notifications_on_recipient_type_and_recipient_id"
   end
 
-  create_table "pay_charges", force: :cascade do |t|
-    t.string "processor_id", null: false
-    t.integer "amount", null: false
-    t.integer "amount_refunded"
-    t.datetime "created_at", precision: nil, null: false
-    t.datetime "updated_at", precision: nil, null: false
-    t.jsonb "data"
-    t.integer "application_fee_amount"
-    t.string "currency"
-    t.jsonb "metadata"
-    t.integer "subscription_id"
-    t.bigint "customer_id"
-    t.index ["customer_id", "processor_id"], name: "index_pay_charges_on_customer_id_and_processor_id", unique: true
-  end
-
-  create_table "pay_customers", force: :cascade do |t|
-    t.string "owner_type"
-    t.bigint "owner_id"
-    t.string "processor"
-    t.string "processor_id"
-    t.boolean "default"
-    t.jsonb "data"
-    t.datetime "deleted_at", precision: nil
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["owner_type", "owner_id", "deleted_at"], name: "customer_owner_processor_index"
-    t.index ["processor", "processor_id"], name: "index_pay_customers_on_processor_and_processor_id"
-  end
-
-  create_table "pay_merchants", force: :cascade do |t|
-    t.string "owner_type"
-    t.bigint "owner_id"
-    t.string "processor"
-    t.string "processor_id"
-    t.boolean "default"
-    t.jsonb "data"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["owner_type", "owner_id", "processor"], name: "index_pay_merchants_on_owner_type_and_owner_id_and_processor"
-  end
-
-  create_table "pay_payment_methods", force: :cascade do |t|
-    t.bigint "customer_id"
-    t.string "processor_id"
-    t.boolean "default"
-    t.string "type"
-    t.jsonb "data"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["customer_id", "processor_id"], name: "index_pay_payment_methods_on_customer_id_and_processor_id", unique: true
-  end
-
-  create_table "pay_subscriptions", id: :serial, force: :cascade do |t|
-    t.string "name", null: false
-    t.string "processor_id", null: false
-    t.string "processor_plan", null: false
-    t.integer "quantity", default: 1, null: false
-    t.datetime "trial_ends_at", precision: nil
-    t.datetime "ends_at", precision: nil
-    t.datetime "created_at", precision: nil
-    t.datetime "updated_at", precision: nil
-    t.string "status"
-    t.jsonb "data"
-    t.decimal "application_fee_percent", precision: 8, scale: 2
-    t.jsonb "metadata"
-    t.bigint "customer_id"
-    t.index ["customer_id", "processor_id"], name: "index_pay_subscriptions_on_customer_id_and_processor_id", unique: true
-  end
-
-  create_table "pay_webhooks", force: :cascade do |t|
-    t.string "processor"
-    t.string "event_type"
-    t.jsonb "event"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "plans", force: :cascade do |t|
-    t.string "name", null: false
-    t.integer "amount", default: 0, null: false
-    t.string "interval", null: false
-    t.jsonb "details", default: {}, null: false
-    t.datetime "created_at", precision: nil, null: false
-    t.datetime "updated_at", precision: nil, null: false
-    t.integer "trial_period_days", default: 0
-    t.boolean "hidden"
-    t.string "currency"
-    t.integer "interval_count", default: 1
-    t.string "description"
-  end
-
-  create_table "user_connected_accounts", force: :cascade do |t|
-    t.bigint "user_id"
-    t.string "provider"
-    t.string "uid"
-    t.string "refresh_token"
-    t.datetime "expires_at", precision: nil
-    t.text "auth"
-    t.datetime "created_at", precision: nil, null: false
-    t.datetime "updated_at", precision: nil, null: false
-    t.string "access_token"
-    t.string "access_token_secret"
-    t.index ["user_id"], name: "index_user_connected_accounts_on_user_id"
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -292,8 +186,4 @@ ActiveRecord::Schema[7.0].define(version: 2021_10_02_195137) do
   add_foreign_key "accounts", "users", column: "owner_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "api_tokens", "users"
-  add_foreign_key "pay_charges", "pay_customers", column: "customer_id"
-  add_foreign_key "pay_payment_methods", "pay_customers", column: "customer_id"
-  add_foreign_key "pay_subscriptions", "pay_customers", column: "customer_id"
-  add_foreign_key "user_connected_accounts", "users"
 end
