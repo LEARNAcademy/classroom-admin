@@ -28,7 +28,7 @@ module TwoFactorAuthentication
   end
 
   def otp
-    ROTP::TOTP.new(otp_secret, issuer: ENV.fetch('APP_NAME', 'LEARN Classroom'))
+    ROTP::TOTP.new(otp_secret, issuer: ENV.fetch("APP_NAME", "LEARN Classroom"))
   end
 
   def otp_provisioning_uri
