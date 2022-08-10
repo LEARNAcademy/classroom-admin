@@ -1,0 +1,18 @@
+<%= form_with(model: cohort) do |form| %>
+  <%= render "shared/error_messages", resource: form.object %>
+
+  <div class="form-group">
+    <%= form.label :cohort_name %>
+    <%= form.text_field :cohort_name, class: "form-control" %>
+  </div>
+
+  <div>
+    <%= form.button button_text(form.send(:submit_default_value)), class: "btn btn-primary" %>
+
+    <% if form.object.new_record? %>
+      <%= link_to t("cancel"), cohorts_path, class: "btn btn-white" %>
+    <% else %>
+      <%= link_to t("cancel"), cohort_path(@cohort), class: "btn btn-white" %>
+    <% end %>
+  </div>
+<% end %>
