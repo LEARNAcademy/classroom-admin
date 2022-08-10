@@ -21,7 +21,7 @@
 #
 
 class Account < ApplicationRecord
-  RESERVED_DOMAINS = [ENV.fetch('APP_DOMAIN', 'example.com')]
+  RESERVED_DOMAINS = [ENV.fetch("APP_DOMAIN", "example.com")]
   RESERVED_SUBDOMAINS = %w[app help support]
 
   belongs_to :owner, class_name: "User"

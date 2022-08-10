@@ -15,7 +15,6 @@ module SetCurrentRequestDetails
 
     # Account may already be set by the AccountMiddleware
     Current.account ||= account_from_param || account_from_session || fallback_account
-
   end
 
   def account_from_session

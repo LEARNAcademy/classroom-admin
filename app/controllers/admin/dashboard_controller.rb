@@ -5,6 +5,5 @@ module Admin
     def show
       @users = ::User.all.count
     end
-
   end
 end

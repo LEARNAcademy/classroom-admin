@@ -81,5 +81,5 @@ Rails.application.configure do
 
   config.i18n.raise_on_missing_translations = true
 
-  config.web_console.whitelisted_ips = ["172.0.0.0/8", '192.168.0.0/16', '127.0.0.1']
+  config.web_console.whitelisted_ips = ["172.0.0.0/8", "192.168.0.0/16", "127.0.0.1"]
 end

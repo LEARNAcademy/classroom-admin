@@ -48,7 +48,7 @@ class UserDashboard < Administrate::BaseDashboard
     :id,
     :name,
     :email,
-    :accounts,
+    :accounts
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES

@@ -16,7 +16,15 @@ Start the server by running `rails s`
 
 ### 🚗 Testing
 
-To execute the existing testing suite by running `rspec spec`
+Execute the existing testing suite by running `rspec spec`
+
+### 🛁 Linting
+
+This project uses [standard](https://github.com/testdouble/standard) as the project linter.
+
+Execute the linter by running `standardrb`
+
+Fix basic linting mistakes by running `standardrb --fix`
 
 ### ✅ Pull Requests
 
