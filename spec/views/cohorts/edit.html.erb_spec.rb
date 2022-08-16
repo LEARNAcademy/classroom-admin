@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe "cohorts/edit", type: :view do
   before(:each) do
@@ -11,7 +11,6 @@ RSpec.describe "cohorts/edit", type: :view do
     render
 
     assert_select "form[action=?][method=?]", cohort_path(@cohort), "post" do
-
       assert_select "input[name=?]", "cohort[cohort_name]"
     end
   end
