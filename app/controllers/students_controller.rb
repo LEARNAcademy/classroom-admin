@@ -1,6 +1,6 @@
 class StudentsController < ApplicationController
   before_action :set_student, only: %i[ show update destroy ]
-
+  # after_action :create_assessments, only: [:create]
   # GET /students
   # GET /students.json
   def index
@@ -16,7 +16,6 @@ class StudentsController < ApplicationController
   # POST /students.json
   def create
     @student = Student.new(student_params)
-
     if @student.save
       render :show, status: :created, location: @student
     else
@@ -48,6 +47,13 @@ class StudentsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def student_params
-      params.require(:student).permit(:cohort_id, :student_name, :absences)
+      params.require(:student).permit(:cohort_id, :student_name, :absences, assessments_attributes: [:id, :week, :comprehension, :status, :reviewer, :notes])
     end
+
+    # def create_assessments
+    #   set_student
+    #   (1..6).map do |i|
+    #     @student.assessments.create({week: i, status: 0, comprehension: 0, reviewer:"N/A", notes:"N/A"})
+    #   end
+    # end
 end

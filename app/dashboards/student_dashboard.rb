@@ -15,6 +15,9 @@ class StudentDashboard < Administrate::BaseDashboard
     absences: Field::Number,
     cohort: Field::BelongsTo,
     student_name: Field::String,
+    assessments: Field::HasMany.with_options(
+      limit: 6,
+    ),
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
   }.freeze
@@ -40,6 +43,7 @@ class StudentDashboard < Administrate::BaseDashboard
   absences
   created_at
   updated_at
+  assessments
   ].freeze
 
   # FORM_ATTRIBUTES

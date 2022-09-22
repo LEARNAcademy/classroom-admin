@@ -25,9 +25,9 @@ class AssessmentDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = %i[
-  id
-  comprehension
-  notes
+  week
+  student
+  status
   reviewer
   ].freeze
 
@@ -35,12 +35,12 @@ class AssessmentDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = %i[
   id
-  comprehension
-  notes
-  reviewer
-  status
-  student
   week
+  student
+  status
+  comprehension
+  reviewer
+  notes
   created_at
   updated_at
   ].freeze
@@ -72,7 +72,7 @@ class AssessmentDashboard < Administrate::BaseDashboard
   # Overwrite this method to customize how assessments are displayed
   # across all pages of the admin dashboard.
   #
-  # def display_resource(assessment)
-  #   "Assessment ##{assessment.id}"
-  # end
+  def display_resource(assessment)
+    "Week #{assessment.week}"
+  end
 end
