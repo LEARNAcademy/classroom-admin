@@ -1,7 +1,8 @@
 # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 Rails.application.routes.draw do
-  resources :students
   resources :cohorts
+  resources :students
+  resources :assessments
   draw :turbo
 
   if Rails.env.development? || Rails.env.test?
@@ -11,8 +12,9 @@ Rails.application.routes.draw do
   # Administrate
   authenticated :user, lambda { |u| u.admin? } do
     namespace :admin do
-      resources :students
       resources :cohorts
+      resources :students
+      resources :assessments
       if defined?(Sidekiq)
         require "sidekiq/web"
         mount Sidekiq::Web => "/sidekiq"
