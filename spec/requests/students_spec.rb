@@ -12,9 +12,9 @@ require 'rails_helper'
 # of tools you can use to make these specs even more expressive, but we're
 # sticking to rails and rspec-rails APIs to keep things simple and stable.
 
-RSpec.describe "/cohorts", type: :request do
+RSpec.describe "/students", type: :request do
   # This should return the minimal set of attributes required to create a valid
-  # Cohort. As you add validations to Cohort, be sure to
+  # Student. As you add validations to Student, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
     skip("Add a hash of attributes valid for your model")
@@ -26,7 +26,7 @@ RSpec.describe "/cohorts", type: :request do
 
   # This should return the minimal set of values that should be in the headers
   # in order to pass any filters (e.g. authentication) defined in
-  # CohortsController, or in your router and rack
+  # StudentsController, or in your router and rack
   # middleware. Be sure to keep this updated too.
   let(:valid_headers) {
     {}
@@ -34,48 +34,48 @@ RSpec.describe "/cohorts", type: :request do
 
   describe "GET /index" do
     it "renders a successful response" do
-      Cohort.create! valid_attributes
-      get cohorts_url, headers: valid_headers, as: :json
+      Student.create! valid_attributes
+      get students_url, headers: valid_headers, as: :json
       expect(response).to be_successful
     end
   end
 
   describe "GET /show" do
     it "renders a successful response" do
-      cohort = Cohort.create! valid_attributes
-      get cohort_url(cohort), as: :json
+      student = Student.create! valid_attributes
+      get student_url(student), as: :json
       expect(response).to be_successful
     end
   end
 
   describe "POST /create" do
     context "with valid parameters" do
-      it "creates a new Cohort" do
+      it "creates a new Student" do
         expect {
-          post cohorts_url,
-               params: { cohort: valid_attributes }, headers: valid_headers, as: :json
-        }.to change(Cohort, :count).by(1)
+          post students_url,
+               params: { student: valid_attributes }, headers: valid_headers, as: :json
+        }.to change(Student, :count).by(1)
       end
 
-      it "renders a JSON response with the new cohort" do
-        post cohorts_url,
-             params: { cohort: valid_attributes }, headers: valid_headers, as: :json
+      it "renders a JSON response with the new student" do
+        post students_url,
+             params: { student: valid_attributes }, headers: valid_headers, as: :json
         expect(response).to have_http_status(:created)
         expect(response.content_type).to match(a_string_including("application/json"))
       end
     end
 
     context "with invalid parameters" do
-      it "does not create a new Cohort" do
+      it "does not create a new Student" do
         expect {
-          post cohorts_url,
-               params: { cohort: invalid_attributes }, as: :json
-        }.to change(Cohort, :count).by(0)
+          post students_url,
+               params: { student: invalid_attributes }, as: :json
+        }.to change(Student, :count).by(0)
       end
 
-      it "renders a JSON response with errors for the new cohort" do
-        post cohorts_url,
-             params: { cohort: invalid_attributes }, headers: valid_headers, as: :json
+      it "renders a JSON response with errors for the new student" do
+        post students_url,
+             params: { student: invalid_attributes }, headers: valid_headers, as: :json
         expect(response).to have_http_status(:unprocessable_entity)
         expect(response.content_type).to match(a_string_including("application/json"))
       end
@@ -88,28 +88,28 @@ RSpec.describe "/cohorts", type: :request do
         skip("Add a hash of attributes valid for your model")
       }
 
-      it "updates the requested cohort" do
-        cohort = Cohort.create! valid_attributes
-        patch cohort_url(cohort),
-              params: { cohort: new_attributes }, headers: valid_headers, as: :json
-        cohort.reload
+      it "updates the requested student" do
+        student = Student.create! valid_attributes
+        patch student_url(student),
+              params: { student: new_attributes }, headers: valid_headers, as: :json
+        student.reload
         skip("Add assertions for updated state")
       end
 
-      it "renders a JSON response with the cohort" do
-        cohort = Cohort.create! valid_attributes
-        patch cohort_url(cohort),
-              params: { cohort: new_attributes }, headers: valid_headers, as: :json
+      it "renders a JSON response with the student" do
+        student = Student.create! valid_attributes
+        patch student_url(student),
+              params: { student: new_attributes }, headers: valid_headers, as: :json
         expect(response).to have_http_status(:ok)
         expect(response.content_type).to match(a_string_including("application/json"))
       end
     end
 
     context "with invalid parameters" do
-      it "renders a JSON response with errors for the cohort" do
-        cohort = Cohort.create! valid_attributes
-        patch cohort_url(cohort),
-              params: { cohort: invalid_attributes }, headers: valid_headers, as: :json
+      it "renders a JSON response with errors for the student" do
+        student = Student.create! valid_attributes
+        patch student_url(student),
+              params: { student: invalid_attributes }, headers: valid_headers, as: :json
         expect(response).to have_http_status(:unprocessable_entity)
         expect(response.content_type).to match(a_string_including("application/json"))
       end
@@ -117,11 +117,11 @@ RSpec.describe "/cohorts", type: :request do
   end
 
   describe "DELETE /destroy" do
-    it "destroys the requested cohort" do
-      cohort = Cohort.create! valid_attributes
+    it "destroys the requested student" do
+      student = Student.create! valid_attributes
       expect {
-        delete cohort_url(cohort), headers: valid_headers, as: :json
-      }.to change(Cohort, :count).by(-1)
+        delete student_url(student), headers: valid_headers, as: :json
+      }.to change(Student, :count).by(-1)
     end
   end
 end

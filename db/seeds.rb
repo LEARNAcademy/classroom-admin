@@ -5,4 +5,4 @@
 #
 # Examples:
 #
-User.create name: "name", email: "email", password: "password", password_confirmation: "password", admin: true, terms_of_service: true
+User.create name: "testAdmin", email: "email@example.com", password: "password", password_confirmation: "password", admin: true, terms_of_service: true

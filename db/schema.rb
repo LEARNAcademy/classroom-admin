@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_10_025212) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_22_163240) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -118,6 +118,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_10_025212) do
 
   create_table "cohorts", force: :cascade do |t|
     t.string "cohort_name"
+    t.integer "cohort_year"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -143,6 +144,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_10_025212) do
     t.datetime "interacted_at", precision: nil
     t.index ["account_id"], name: "index_notifications_on_account_id"
     t.index ["recipient_type", "recipient_id"], name: "index_notifications_on_recipient_type_and_recipient_id"
+  end
+
+  create_table "students", force: :cascade do |t|
+    t.bigint "cohort_id", null: false
+    t.string "student_name"
+    t.integer "absences"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["cohort_id"], name: "index_students_on_cohort_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -192,4 +202,5 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_10_025212) do
   add_foreign_key "accounts", "users", column: "owner_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "api_tokens", "users"
+  add_foreign_key "students", "cohorts"
 end
