@@ -10,6 +10,8 @@
 #
 class Cohort < ApplicationRecord
   has_many :students, dependent: :destroy
+  alias_attribute :active_storage_attachments, :student_csv
+  has_one_attached :student_csv, dependent: :destroy
   accepts_nested_attributes_for :students, allow_destroy: true
 
   # Broadcast changes in realtime with Hotwire

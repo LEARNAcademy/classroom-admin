@@ -11,10 +11,10 @@ class StudentDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
+    student_name: Field::String,
     id: Field::Number,
     absences: Field::Number,
     cohort: Field::BelongsTo,
-    student_name: Field::String,
     assessments: Field::HasMany.with_options(
       limit: 6,
     ),
@@ -28,10 +28,10 @@ class StudentDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = %i[
+    student_name
   id
-  absences
   cohort
-  student_name
+  absences
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES

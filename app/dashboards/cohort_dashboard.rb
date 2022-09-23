@@ -1,9 +1,6 @@
 require "administrate/base_dashboard"
 
 class CohortDashboard < Administrate::BaseDashboard
-  def display_resource(cohort)
-    "#{cohort.cohort_name} #{cohort.cohort_year}"
-  end
   # ATTRIBUTE_TYPES
   # a hash that describes the type of each of the model's fields.
   #
@@ -12,8 +9,12 @@ class CohortDashboard < Administrate::BaseDashboard
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
     id: Field::Number,
+    students: Field::HasMany.with_options(
+      limit: 20,
+    ),
     cohort_name: Field::String,
     cohort_year: Field::Number,
+    student_csv: Field::ActiveStorage,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
   }.freeze
@@ -38,6 +39,7 @@ class CohortDashboard < Administrate::BaseDashboard
   cohort_year
   created_at
   updated_at
+  students
   ].freeze
 
   # FORM_ATTRIBUTES
@@ -46,6 +48,7 @@ class CohortDashboard < Administrate::BaseDashboard
   FORM_ATTRIBUTES = %i[
   cohort_name
   cohort_year
+  student_csv
   ].freeze
 
   # COLLECTION_FILTERS
@@ -63,7 +66,7 @@ class CohortDashboard < Administrate::BaseDashboard
   # Overwrite this method to customize how cohorts are displayed
   # across all pages of the admin dashboard.
   #
-  # def display_resource(cohort)
-  #   "Cohort ##{cohort.id}"
-  # end
+  def display_resource(cohort)
+    "#{cohort.cohort_name} #{cohort.cohort_year}"
+  end
 end
