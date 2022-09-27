@@ -10,7 +10,7 @@
 #
 FactoryBot.define do
   factory :cohort do
-    cohort_name { "MyString" }
-    cohort_year { 1 }
+    cohort_name { "Charlie" }
+    cohort_year { 2022 }
   end
 end

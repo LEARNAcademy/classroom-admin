@@ -11,5 +11,7 @@
 require 'rails_helper'
 
 RSpec.describe Cohort, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it "has no cohorts to begin with" do
+    expect(Cohort.count).to eq 0
+  end
 end
