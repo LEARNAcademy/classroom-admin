@@ -44,6 +44,7 @@
 /app/assets/builds/*
 !/app/assets/builds/.keep
 
+bump.rdb
 yarn-error.log
 yarn-debug.log*
 .yarn-integrity

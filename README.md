@@ -6,13 +6,14 @@ The purpose of the LEARN Academy student application is to streamline workflow a
 
 - Clone the repository
 - Install dependencies by running:
+  - `brew install redis`
   - `bundle`
   - `yarn`
   - `rails db:setup`
 
 ### 🏁 Start the App
 
-Start the server by running `rails s`
+Start the server by running `yarn build`
 
 ### 🚗 Testing
 
@@ -61,3 +62,39 @@ Fill out the Pull Request template.
 ### 📚 Resources and References
 
 Project in managed in Notion. Reach out to a member of the team to gain access.
+
+You can view more about the accessability workflow for GitHub Actions here:
+- [accessibility insights action](https://github.com/microsoft/accessibility-insights-action/blob/main/docs/gh-action-usage.md)
+- [accessibility insights action usage](https://github.com/microsoft/accessibility-insights-action/blob/main/docs/gh-action-usage.md)
+
+### Jumpstart Framework
+
+Once a scaffold has been generated for a model, a directory for that model will be generated with views, controllers, and specs. The views have partials (usually starts with an underscore _ ) that are rendered and must be modified to specification.
+
+The controllers need to be modified to handle newly generated columns otherwise turbo_stream will be unable to access those properties.
+
+The specs need to be modified so that forms with changed inputs (such as select) have different assertions.
+
+The general workflow can be broken down into 3 steps.
+
+- The specs
+
+app/spec/models
+app/spec/requests
+app/spec/views
+
+- The view page
+
+app/views/your_model
+
+- The controller
+
+app/controllers/users/your_model.rb
+
+### 💫 Development Useful Commands
+
+- If you're not seeing an updated page mid development.
+
+   ```
+   $ yarn build:update
+   ```

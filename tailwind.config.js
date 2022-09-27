@@ -25,15 +25,20 @@ module.exports = {
     extend: {
       // Create your own at: https://javisperez.github.io/tailwindcolorshades
       colors: {
-        primary: colors.blue,
+        primary: colors.learnpurple,
         secondary: colors.emerald,
         tertiary: colors.gray,
         danger: colors.red,
         "code-400": "#fefcf9",
         "code-600": "#3c455b",
+        "learngray": "#313133",
+        "learnpurple": "#A670AF",
+        "learnpurplehover": "#C797CF",
+        "learnblack": "#101820",
+        "learngreen": "#6FBD73",
       },
       fontFamily: {
-        sans: ['Inter', ...defaultTheme.fontFamily.sans],
+        sans: ['Gesta', ...defaultTheme.fontFamily.sans],
       },
     },
   },
