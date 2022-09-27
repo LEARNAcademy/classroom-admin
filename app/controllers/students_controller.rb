@@ -50,10 +50,4 @@ class StudentsController < ApplicationController
       params.require(:student).permit(:cohort_id, :student_name, :absences, assessments_attributes: [:id, :week, :comprehension, :status, :reviewer, :notes])
     end
 
-    # def create_assessments
-    #   set_student
-    #   (1..6).map do |i|
-    #     @student.assessments.create({week: i, status: 0, comprehension: 0, reviewer:"N/A", notes:"N/A"})
-    #   end
-    # end
 end
