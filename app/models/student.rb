@@ -30,7 +30,7 @@ class Student < ApplicationRecord
     end
   end
 
-  validates :absences, presence:true
+  validates :absences, presence: true
   validates :student_name, presence: true
   validates :cohort_id, presence: true
   # Broadcast changes in realtime with Hotwire

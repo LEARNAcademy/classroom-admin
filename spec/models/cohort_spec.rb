@@ -11,7 +11,7 @@
 require "rails_helper"
 
 RSpec.describe Cohort, type: :model do
-  subject(:cohort) { FactoryBot.create(:cohort)}
+  subject(:cohort) { FactoryBot.create(:cohort) }
   it { is_expected.to be_valid }
 
   context "length of name" do
@@ -39,5 +39,4 @@ RSpec.describe Cohort, type: :model do
       is_expected.to be_invalid
     end
   end
-
 end

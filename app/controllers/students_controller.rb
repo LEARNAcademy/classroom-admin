@@ -50,5 +50,4 @@ class StudentsController < ApplicationController
   def student_params
     params.require(:student).permit(:cohort_id, :student_name, :absences, assessments_attributes: [:id, :week, :comprehension, :status, :reviewer, :notes])
   end
-
 end

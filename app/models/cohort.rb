@@ -14,11 +14,9 @@ class Cohort < ApplicationRecord
   has_one_attached :student_csv, dependent: :destroy
   accepts_nested_attributes_for :students, allow_destroy: true
 
-  validates :cohort_name, length: (4..10),presence: true
-  validates :cohort_year, presence: true, numericality: { in: 2000..2100}
+  validates :cohort_name, length: (4..10), presence: true
+  validates :cohort_year, presence: true, numericality: {in: 2000..2100}
   validates_uniqueness_of :cohort_name, scope: %i[cohort_year]
-  
-  
 
   # Broadcast changes in realtime with Hotwire
   after_create_commit -> { broadcast_prepend_later_to :cohorts, partial: "cohorts/index", locals: {cohort: self} }

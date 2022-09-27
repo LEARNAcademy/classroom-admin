@@ -91,7 +91,4 @@ RSpec.configure do |config|
   #   # test failures related to randomization by passing the same `--seed` value
   #   # as the one that triggered the failure.
   #   Kernel.srand config.seed
-  
-  #  # Run spec in transactions so that test database remains clean and will not interfere with count specs.
-  
 end
