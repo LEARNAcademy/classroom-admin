@@ -1,5 +1,5 @@
 class AssessmentsController < ApplicationController
-  before_action :set_assessment, only: %i[ show update destroy ]
+  before_action :set_assessment, only: %i[show update destroy]
 
   # GET /assessments
   # GET /assessments.json
@@ -41,13 +41,14 @@ class AssessmentsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_assessment
-      @assessment = Assessment.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def assessment_params
-      params.require(:assessment).permit(:student_id, :week, :status, :comprehension, :reviewer, :notes)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_assessment
+    @assessment = Assessment.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def assessment_params
+    params.require(:assessment).permit(:student_id, :week, :status, :comprehension, :reviewer, :notes)
+  end
 end

@@ -16,7 +16,7 @@ class AssessmentDashboard < Administrate::BaseDashboard
     student: Field::BelongsTo,
     week: Field::Number,
     created_at: Field::DateTime,
-    updated_at: Field::DateTime,
+    updated_at: Field::DateTime
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -25,36 +25,36 @@ class AssessmentDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = %i[
-  week
-  student
-  status
-  reviewer
+    week
+    student
+    status
+    reviewer
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = %i[
-  id
-  week
-  student
-  status
-  comprehension
-  reviewer
-  notes
-  created_at
-  updated_at
+    id
+    week
+    student
+    status
+    comprehension
+    reviewer
+    notes
+    created_at
+    updated_at
   ].freeze
 
   # FORM_ATTRIBUTES
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
-  comprehension
-  notes
-  reviewer
-  status
-  student
-  week
+    comprehension
+    notes
+    reviewer
+    status
+    student
+    week
   ].freeze
 
   # COLLECTION_FILTERS

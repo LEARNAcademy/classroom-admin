@@ -10,7 +10,6 @@ RSpec.describe AssessmentsController, type: :routing do
       expect(get: "/assessments/1").to route_to("assessments#show", id: "1")
     end
 
-
     it "routes to #create" do
       expect(post: "/assessments").to route_to("assessments#create")
     end

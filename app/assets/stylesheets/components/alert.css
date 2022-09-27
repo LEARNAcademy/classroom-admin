@@ -30,10 +30,10 @@
   }
 
   &.alert-warning {
-    @apply bg-yellow-50 text-yellow-600;
+    @apply bg-learnpurplehover text-learngray;
 
     svg {
-      @apply text-yellow-400;
+      @apply text-learngray;
     }
   }
 
@@ -46,10 +46,10 @@
   @apply flex items-center text-sm justify-center font-medium p-4;
 
   &.notice-info {
-    @apply bg-blue-50 text-blue-700;
+    @apply bg-learnpurplehover text-learngray;
 
     svg {
-      @apply text-blue-400;
+      @apply text-learngray;
     }
   }
 
@@ -70,10 +70,10 @@
   }
 
   &.notice-warning {
-    @apply bg-yellow-50 text-yellow-700;
+    @apply bg-learnpurplehover text-learngray;
 
     svg {
-      @apply text-yellow-400;
+      @apply text-learngray;
     }
   }
 }

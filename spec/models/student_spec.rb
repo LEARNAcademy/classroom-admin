@@ -17,7 +17,7 @@
 #
 #  fk_rails_...  (cohort_id => cohorts.id)
 #
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe Student, type: :model do
   it "has no students to begin with" do

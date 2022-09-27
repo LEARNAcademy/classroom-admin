@@ -1,3 +1,6 @@
 <%# Place any links for the RIGHT side of the nav bar here. Be sure to add class: "nav-link" to each item for proper spacing. %>
 
-<%= nav_link_to tag.span(t(".announcements")), announcements_path, class: ["nav-link", unread_announcements_class(current_user)] %>
+<%= if current_user
+     nav_link_to 'Create Announcement', '/admin/announcements/new', class: ["nav-link"] 
+end%>
+

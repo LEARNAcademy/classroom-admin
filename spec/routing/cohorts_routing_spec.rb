@@ -10,7 +10,6 @@ RSpec.describe CohortsController, type: :routing do
       expect(get: "/cohorts/1").to route_to("cohorts#show", id: "1")
     end
 
-
     it "routes to #create" do
       expect(post: "/cohorts").to route_to("cohorts#create")
     end
