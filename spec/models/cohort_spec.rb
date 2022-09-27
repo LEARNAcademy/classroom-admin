@@ -11,7 +11,33 @@
 require 'rails_helper'
 
 RSpec.describe Cohort, type: :model do
-  it "has no cohorts to begin with" do
-    expect(Cohort.count).to eq 0
+  subject(:cohort) { FactoryBot.create(:cohort)}
+  it { is_expected.to be_valid }
+
+  context "length of name" do
+    it "will be invalid if cohort name is greater than 10" do
+      cohort.cohort_name = "12345Charlie"
+      is_expected.to be_invalid
+    end
+    it "will be invalid if cohort name is less than 4" do
+      cohort.cohort_name = "Cha"
+      is_expected.to be_invalid
+    end
   end
+
+  context "year" do
+    it "will be invalid if cohort year is not an integer" do
+      cohort.cohort_year = "TwentyTwentyTwo"
+      is_expected.to be_invalid
+    end
+    it "will be invalid if cohort year is less than 2000" do
+      cohort.cohort_year = 1999
+      is_expected.to be_invalid
+    end
+    it "will be invalid if cohort_year is greater than 2100" do
+      cohort.cohort_year = 2101
+      is_expected.to be_invalid
+    end
+  end
+
 end
