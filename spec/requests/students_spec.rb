@@ -16,12 +16,22 @@ RSpec.describe "/students", type: :request do
   # This should return the minimal set of attributes required to create a valid
   # Student. As you add validations to Student, be sure to
   # adjust the attributes here as well.
+  let(:user) { skip }
+  let(:cohort) { FactoryBot.create(:cohort) }
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
+    {
+      cohort_id: cohort.id,
+      student_name: "Don",
+      absences: 0
+    }
   }
 
   let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
+    {
+      cohort_id: nil,
+      student_name: nil,
+      absences: nil
+    }
   }
 
   # This should return the minimal set of values that should be in the headers
@@ -31,6 +41,10 @@ RSpec.describe "/students", type: :request do
   let(:valid_headers) {
     {}
   }
+
+  before(:each) do
+    sign_in user
+  end
 
   describe "GET /index" do
     it "renders a successful response" do
@@ -85,7 +99,11 @@ RSpec.describe "/students", type: :request do
   describe "PATCH /update" do
     context "with valid parameters" do
       let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
+        {
+          cohort_id: cohort.id,
+          student_name: "Don",
+          absences: 1
+        }
       }
 
       it "updates the requested student" do
@@ -93,7 +111,7 @@ RSpec.describe "/students", type: :request do
         patch student_url(student),
           params: {student: new_attributes}, headers: valid_headers, as: :json
         student.reload
-        skip("Add assertions for updated state")
+        expect(response).to be_successful
       end
 
       it "renders a JSON response with the student" do

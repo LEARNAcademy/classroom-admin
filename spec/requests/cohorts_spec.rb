@@ -16,12 +16,20 @@ RSpec.describe "/cohorts", type: :request do
   # This should return the minimal set of attributes required to create a valid
   # Cohort. As you add validations to Cohort, be sure to
   # adjust the attributes here as well.
+  let(:user) { skip }
+  let(:cohort) { FactoryBot.create(:cohort) }
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
+    {
+      cohort_name: "Charlie",
+      cohort_year: 2022
+    }
   }
 
   let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
+    {
+      cohort_name: nil,
+      cohort_year: nil
+    }
   }
 
   # This should return the minimal set of values that should be in the headers
@@ -31,6 +39,10 @@ RSpec.describe "/cohorts", type: :request do
   let(:valid_headers) {
     {}
   }
+
+  before(:each) do
+    sign_in user
+  end
 
   describe "GET /index" do
     it "renders a successful response" do
@@ -85,7 +97,10 @@ RSpec.describe "/cohorts", type: :request do
   describe "PATCH /update" do
     context "with valid parameters" do
       let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
+        {
+          cohort_name: "Delta",
+          cohort_year: "2023"
+        }
       }
 
       it "updates the requested cohort" do
@@ -93,7 +108,7 @@ RSpec.describe "/cohorts", type: :request do
         patch cohort_url(cohort),
           params: {cohort: new_attributes}, headers: valid_headers, as: :json
         cohort.reload
-        skip("Add assertions for updated state")
+        expect(response).to be_successful
       end
 
       it "renders a JSON response with the cohort" do

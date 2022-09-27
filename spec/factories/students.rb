@@ -19,8 +19,8 @@
 #
 FactoryBot.define do
   factory :student do
-    cohort { nil }
-    student_name { "MyString" }
-    absences { 1 }
+    cohort_id { nil }
+    student_name { "Don" }
+    absences { 0 }
   end
 end

@@ -30,6 +30,9 @@ class Student < ApplicationRecord
     end
   end
 
+  validates :absences, presence: true
+  validates :student_name, presence: true
+  validates :cohort_id, presence: true
   # Broadcast changes in realtime with Hotwire
   after_create_commit -> { broadcast_prepend_later_to :students, partial: "students/index", locals: {student: self} }
   after_update_commit -> { broadcast_replace_later_to self }
