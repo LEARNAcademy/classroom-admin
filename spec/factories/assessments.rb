@@ -22,11 +22,11 @@
 #
 FactoryBot.define do
   factory :assessment do
-    student { nil }
-    week { 1 }
-    status { 1 }
-    comprehension { 1 }
-    reviewer { "MyString" }
-    notes { "MyText" }
+    student { FactoryBot.create(:student) }
+    week { student.assessments[0].week }
+    status { student.assessments[0].status }
+    comprehension { student.assessments[0].comprehension }
+    reviewer { student.assessments[0].reviewer }
+    notes { student.assessments[0].notes }
   end
 end

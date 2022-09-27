@@ -16,7 +16,7 @@ RSpec.describe "/cohorts", type: :request do
   # This should return the minimal set of attributes required to create a valid
   # Cohort. As you add validations to Cohort, be sure to
   # adjust the attributes here as well.
-  let(:user) { skip }
+  let(:user) { FactoryBot.create(:user) }
   let(:cohort) { FactoryBot.create(:cohort) }
   let(:valid_attributes) {
     {

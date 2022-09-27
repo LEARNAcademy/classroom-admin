@@ -19,7 +19,7 @@
 #
 FactoryBot.define do
   factory :student do
-    cohort_id { nil }
+    cohort { FactoryBot.create(:cohort) }
     student_name { "Don" }
     absences { 0 }
   end

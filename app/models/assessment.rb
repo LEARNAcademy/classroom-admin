@@ -23,6 +23,13 @@
 class Assessment < ApplicationRecord
   belongs_to :student
 
+  validates :comprehension, presence: true, numericality: {in: 0..4}
+  validates :notes, presence: true
+  validates :reviewer, presence: true
+  validates :status, presence: true, numericality: {in: 0..4}
+  validates :week, presence: true, numericality: {in: 1..6}
+  validates :student_id, presence: true
+
   # Broadcast changes in realtime with Hotwire
   after_create_commit -> { broadcast_prepend_later_to :assessments, partial: "assessments/index", locals: {assessment: self} }
   after_update_commit -> { broadcast_replace_later_to self }

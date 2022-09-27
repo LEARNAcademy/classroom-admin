@@ -48,6 +48,10 @@
 #
 FactoryBot.define do
   factory(:user) do
+    name { Faker::Name.name }
+    accepted_terms_at { Time.zone.now }
+    accepted_privacy_at { Time.zone.now }
+    terms_of_service { true }
     email { Faker::Internet.email }
     password { Faker::Internet.password }
   end
