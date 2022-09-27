@@ -35,7 +35,9 @@
     "trix": "^1.3.1"
   },
   "scripts": {
-    "build:css": "tailwindcss --postcss -i ./app/assets/stylesheets/application.tailwind.css -o ./app/assets/builds/application.css",
-    "build": "node esbuild.config.js"
+    "prebuild": "tailwindcss --postcss -i ./app/assets/stylesheets/application.tailwind.css -o ./app/assets/builds/application.css && node esbuild.config.js",
+    "build": "redis-server &",
+    "postbuild": "rails s",
+    "build:update": "tailwindcss --postcss -i ./app/assets/stylesheets/application.tailwind.css -o ./app/assets/builds/application.css && node esbuild.config.js"
   }
 }

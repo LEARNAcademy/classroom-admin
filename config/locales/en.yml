@@ -33,16 +33,20 @@
 
 en:
   are_you_sure: "Are you sure?"
-  back: "Back"
+  back: 
+    current_cohort: "Back to Cohort"
   cancel: "Cancel"
   create_an_account_first: "Please create an account first."
-  delete: "Delete"
+  delete: 
+    current_cohort_del: "Delete Cohort"
   edit: "Edit"
   view: "View"
   must_be_an_admin: "You must be an admin to do that."
   processing: "Processing..."
   something_went_wrong: "Something went wrong"
   unauthorized: "You are not authorized to perform this action."
+  select_student_csv: "Select Students CSV"
+  upload_student_csv: "Upload Students CSV"
 
   account_invitations_mailer:
     invite:
@@ -86,7 +90,7 @@ en:
     edit:
       title: "Edit"
     created: "Account was successfully created."
-    created_and_switch_html: "Account was successfully created. <a class=\"underline\" href=\"%{link}\">Switch account</a>"
+    created_and_switch_html: 'Account was successfully created. <a class="underline" href="%{link}">Switch account</a>'
     updated: "Account was successfully updated."
     destroyed: "Account was successfully destroyed."
     admin_required: "Only account admins are allowed to do that."
@@ -165,7 +169,7 @@ en:
 
   dashboard:
     show:
-      title: "Dashboard"
+      title: "Student Application"
 
   payments:
     success: "Thanks for subscribing!"
@@ -192,13 +196,16 @@ en:
     privacy:
       title: "Privacy Policy"
     terms:
-      title: "Terms Of Service"
+      title: "Terms & Conditions"
+    conduct:
+      title: "Code of Conduct"
 
   shared:
     footer:
       about: "About Us"
       privacy: "Privacy Policy"
-      terms: "Terms of Service"
+      terms: "Terms of Use"
+      conduct: "Code of Conduct"
     account_navbar:
       profile: "Profile"
       password: "Password"
@@ -415,8 +422,8 @@ en:
         header: "Scan this barcode with your app."
         subheader: "Scan the image above with the two-factor authentication app on your phone."
         instructions_1_html: "Install Authy: %{ios} or %{android}"
-        instructions_2: "In the app, select \"Add account\""
-        instructions_3: "Choose \"Scan QR Code\""
+        instructions_2: 'In the app, select "Add account"'
+        instructions_3: 'Choose "Scan QR Code"'
         verify_header: "Enter the six-digit code from the application"
         verify_description: "After scanning the barcode image, the app will display a code that you can enter below."
         cancel: "Cancel"
@@ -438,6 +445,8 @@ en:
     account_transferred: "%{previous_owner} made you owner of the %{account} account."
     empty: "Nothing to see here — yet."
     empty_description: "We'll let you know when you have new notifications."
+    new_announcement:
+      hello: "Hello, you have a new announcement."
 
   activerecord:
     attributes:
