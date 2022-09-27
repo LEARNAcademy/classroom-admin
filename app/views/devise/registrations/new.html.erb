@@ -1,7 +1,7 @@
 <% content_for :form_block do %>
   <div class="mb-4 text-center">
     <h2 class="mb-1"><%= t('.sign_up') %></h2>
-    <%= t(".login_html", link: link_to("log in to your account", new_session_path(resource_name), class: "font-semibold")) %>
+    <%= t(".login_html", link: link_to("log in to your account", new_session_path(resource_name), class: "text-learnpurple hover:text-learnpurplehover active:text-learnpurplehover font-semibold")) %>
   </div>
 
   <% if @account_invitation %>
@@ -53,7 +53,7 @@
 
     <div class="form-group">
       <%= f.check_box :terms_of_service, id: "tos", class: "form-checkbox mr-1" %>
-      <label for="tos" class="inline-block text-sm"><%= t ".terms_html", terms: link_to("terms of service", terms_path, target: "_blank", class: "btn-link"), privacy: link_to("privacy policy", privacy_path, target: "_blank", class: "btn-link") %></label>
+      <label for="tos" class="inline-block text-sm"><%= t ".terms_html", terms: link_to("terms of service", terms_path, target: "_blank", class: "text-learnpurple hover:text-learnpurplehover active:text-learnpurplehover btn-link"), privacy: link_to("privacy policy", privacy_path, target: "_blank", class: "text-learnpurple hover:text-learnpurplehover active:text-learnpurplehover btn-link") %></label>
     </div>
 
     <div class="form-group">
