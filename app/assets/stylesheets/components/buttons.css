@@ -37,19 +37,21 @@ button[disabled]        .when-enabled { display: none; }
   }
 
   .btn-primary {
-    @apply bg-blue-600 text-white focus:ring-blue-500;
+    @apply bg-learnpurple text-white focus:ring-learnpurple;
 
-    &:hover,
+    &:hover {
+      @apply bg-learnpurplehover text-white focus:ring-learnpurple;
+    },
     &:focus {
-      @apply bg-blue-500 text-white;
+      @apply bg-learnpurplehover text-white;
     }
 
     &.outline {
-      @apply bg-transparent outline-1 text-blue-500 shadow-none;
+      @apply bg-transparent outline-1 text-learnpurple shadow-none;
 
       &:hover,
       &:focus {
-        @apply bg-blue-500 text-white;
+        @apply bg-learnpurplehover text-white;
       }
     }
   }
