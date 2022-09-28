@@ -23,5 +23,28 @@
 require "rails_helper"
 
 RSpec.describe Assessment, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  subject(:assessment) { FactoryBot.create(:assessment) }
+  it { is_expected.to be_valid }
+
+  context "comprehension" do
+    it "should not be less than 0" do
+      assessment.comprehension = -1
+      is_expected.to be_invalid
+    end
+    it "should not be greater than 4" do
+      assessment.comprehension = 5
+      is_expected.to be_invalid
+    end
+  end
+
+  context "week" do
+    it "should not be less than 1" do
+      assessment.week = 0
+      is_expected.to be_invalid
+    end
+    it "should not be greater than 6" do
+      assessment.week = 7
+      is_expected.to be_invalid
+    end
+  end
 end

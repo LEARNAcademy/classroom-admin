@@ -16,12 +16,35 @@ RSpec.describe "/assessments", type: :request do
   # This should return the minimal set of attributes required to create a valid
   # Assessment. As you add validations to Assessment, be sure to
   # adjust the attributes here as well.
+
+  #  comprehension :integer
+  #  notes         :text
+  #  reviewer      :string
+  #  status        :integer
+  #  week          :integer
+
+  let(:user) { FactoryBot.create(:user) }
+  let(:student) { FactoryBot.create(:student) }
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
+    {
+      comprehension: student.assessments[0].comprehension,
+      notes: student.assessments[0].notes,
+      reviewer: student.assessments[0].reviewer,
+      status: student.assessments[0].status,
+      week: student.assessments[0].week,
+      student_id: student.id
+    }
   }
 
   let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
+    {
+      comprehension: nil,
+      notes: nil,
+      reviewer: nil,
+      status: nil,
+      week: nil,
+      student_id: nil
+    }
   }
 
   # This should return the minimal set of values that should be in the headers
@@ -31,6 +54,10 @@ RSpec.describe "/assessments", type: :request do
   let(:valid_headers) {
     {}
   }
+
+  before(:each) do
+    sign_in user
+  end
 
   describe "GET /index" do
     it "renders a successful response" do
@@ -52,9 +79,10 @@ RSpec.describe "/assessments", type: :request do
     context "with valid parameters" do
       it "creates a new Assessment" do
         expect {
+          # The count changes by 7 because when a student is created, 6 default assessments are created and creating another for the test will change the count by 7
           post assessments_url,
             params: {assessment: valid_attributes}, headers: valid_headers, as: :json
-        }.to change(Assessment, :count).by(1)
+        }.to change(Assessment, :count).by(7)
       end
 
       it "renders a JSON response with the new assessment" do
@@ -85,7 +113,14 @@ RSpec.describe "/assessments", type: :request do
   describe "PATCH /update" do
     context "with valid parameters" do
       let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
+        {
+          comprehension: student.assessments[0].comprehension,
+          notes: student.assessments[0].notes,
+          reviewer: "Teacher",
+          status: 2,
+          week: student.assessments[0].week,
+          student_id: student.id
+        }
       }
 
       it "updates the requested assessment" do
@@ -93,7 +128,7 @@ RSpec.describe "/assessments", type: :request do
         patch assessment_url(assessment),
           params: {assessment: new_attributes}, headers: valid_headers, as: :json
         assessment.reload
-        skip("Add assertions for updated state")
+        expect(response).to be_successful
       end
 
       it "renders a JSON response with the assessment" do
