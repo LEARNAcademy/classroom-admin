@@ -25,7 +25,6 @@ RSpec.describe "/assessments", type: :request do
 
   let(:user) { FactoryBot.create(:user) }
   let(:student) { FactoryBot.create(:student) }
-  # let(:assessment) { FactoryBot.create(:assessment) }
   let(:valid_attributes) {
     {
       comprehension: student.assessments[0].comprehension,
