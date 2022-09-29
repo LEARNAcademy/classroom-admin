@@ -36,7 +36,8 @@ class UserDashboard < Administrate::BaseDashboard
     invitations_count: Field::Number,
     terms_of_service: Field::Boolean,
     accepted_terms_at: Field::DateTime,
-    accepted_privacy_at: Field::DateTime
+    accepted_privacy_at: Field::DateTime,
+    students: Field::NestedHasMany.with_options(skip: :user)
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -48,7 +49,7 @@ class UserDashboard < Administrate::BaseDashboard
     :id,
     :name,
     :email,
-    :accounts
+    :students
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -86,7 +87,8 @@ class UserDashboard < Administrate::BaseDashboard
   FORM_ATTRIBUTES = [
     :name,
     :email,
-    :admin
+    :admin,
+    :students
   ].freeze
 
   # Overwrite this method to customize how users are displayed
