@@ -15,7 +15,7 @@ class StudentDashboard < Administrate::BaseDashboard
     id: Field::Number,
     absences: Field::Number,
     cohort: Field::BelongsTo,
-    user_email: Field::String,
+    user: Field::BelongsTo,
     assessments: Field::HasMany.with_options(
       limit: 6
     ),
@@ -50,7 +50,7 @@ class StudentDashboard < Administrate::BaseDashboard
     student_name
     cohort
     absences
-    user_email
+    user
   ].freeze
 
   # COLLECTION_FILTERS

@@ -20,7 +20,7 @@
 #  fk_rails_...  (cohort_id => cohorts.id)
 #
 class Student < ApplicationRecord
-  attr_accessor :user_email, :user_name
+  attr_accessor :email, :name
 
   belongs_to :cohort
 
@@ -30,7 +30,15 @@ class Student < ApplicationRecord
   has_many :assessments, dependent: :destroy
   accepts_nested_attributes_for :assessments, allow_destroy: true
 
+  before_validation :invite_user, on: :create
   after_create :create_assessments
+
+  def invite_user
+    if user&.email.present? && user&.id.blank?
+      self.user = User.invite!(email: user.email, name: user.name)
+    end
+  end
+
 
   def create_assessments
     (1..6).map do |i|

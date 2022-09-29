@@ -68,7 +68,7 @@ class User < ApplicationRecord
   has_many :api_tokens, dependent: :destroy
   has_many :notifications, as: :recipient, dependent: :destroy
   has_many :notification_tokens, dependent: :destroy
-  has_many :students, dependent: :destroy, inverse_of: :user
+  has_many :students, dependent: :destroy
 
   accepts_nested_attributes_for(
     :students,

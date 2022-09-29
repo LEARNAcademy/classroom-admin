@@ -1,0 +1,39 @@
+<%= form_with(model: student) do |form| %>
+  <%= render "shared/error_messages", resource: form.object %>
+
+  <div class="form-group">
+    <%= form.label :student_name, "Student Name" %>
+    <%= form.text_field :student_name, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :cohort_id %>
+    <%= form.select :cohort_id, options_for_select(Cohort.all.map{|cohort| [cohort.cohort_name, cohort.id]}) , prompt: "Select a Cohort", class: "form-control" %>
+  </div>
+
+  <%= form.fields_for :user do |user_form| %>
+    <div class="form-group">
+
+      <%= user_form.label :email %>
+      <%= user_form.text_field :email %>
+    </div>
+    <div class="form-group">
+      <%= user_form.label :name %>
+      <%= user_form.text_field :name %>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :absences %>
+    <%= form.number_field :absences, :value => 0, class: "form-control" %>
+  </div>
+
+  <div>
+    <%= form.button button_text(form.send(:submit_default_value)), class: "btn btn-primary" %>
+    <% if form.object.new_record? %>
+      <%= link_to t("cancel"), students_path, class: "btn btn-white" %>
+    <% else %>
+      <%= link_to t("cancel"), student_path(@student), class: "btn btn-white" %>
+    <% end %>
+  </div>
+<% end %>

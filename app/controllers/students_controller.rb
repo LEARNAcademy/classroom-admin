@@ -1,6 +1,6 @@
 class StudentsController < ApplicationController
   before_action :set_student, only: %i[show update destroy]
-
+  
   # GET /students
   # GET /students.json
   def index
@@ -15,14 +15,15 @@ class StudentsController < ApplicationController
   # GET /students/new
   def new
     @student = Student.new
-    User.build(@student)
+    @student.build_user
+    # Uncomment to authorize with Pundit
+    # authorize @student
   end
-
   # POST /students
   # POST /students.json
   def create
     @student = Student.create(student_params)
-
+    
     if @student.user
       @student.user = User.invite!(email: @student.user.email, name: @student.user.name)
     end
@@ -55,13 +56,10 @@ class StudentsController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def set_student
     @student = Student.find(params[:id])
-    unless @student.user
-      User.build(@student)
-    end
   end
 
   # Only allow a list of trusted parameters through.
   def student_params
-    params.require(:student).permit(:cohort_id, :student_name, :absences, assessments_attributes: [:id, :week, :comprehension, :status, :reviewer, :notes], user_attributes: [:email, :name])
+    params.require(:student).permit(:cohort_id, :user_id, :student_name, :absences, assessments_attributes: [:id, :week, :comprehension, :status, :reviewer, :notes], user_attributes: [:email, :name])
   end
 end
