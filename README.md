@@ -101,3 +101,12 @@ app/controllers/users/your_model.rb
 
 ### Rails classroom-admin
 - For the admin side of the app, only controllers namespaced to  Admin will have modify the behaviour of the app.
+- please keep in mind unused controllers and routes to see if we can get rid of at a later time
+  - app/models/concerns/user_agreements.rb
+    ```ruby
+    # validates :terms_of_service, presence: true, acceptance: true, on: [:create, :invitation_accepted]
+    ```
+  - config/routes.rb
+    ```ruby
+    # resources :accounts
+    ```

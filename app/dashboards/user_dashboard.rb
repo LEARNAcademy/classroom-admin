@@ -37,9 +37,7 @@ class UserDashboard < Administrate::BaseDashboard
     terms_of_service: Field::Boolean,
     accepted_terms_at: Field::DateTime,
     accepted_privacy_at: Field::DateTime,
-    students: Field::NestedHasMany.with_options(skip: :user),
-    password: Field::Password,
-    password_confirmation: Field::Password
+    students: Field::NestedHasMany.with_options(skip: :user)
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -52,7 +50,6 @@ class UserDashboard < Administrate::BaseDashboard
     :name,
     :email,
     :admin
-
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -81,7 +78,6 @@ class UserDashboard < Administrate::BaseDashboard
     :invitation_accepted_at,
     :invitation_limit,
     :invitations_count
-
   ].freeze
 
   # FORM_ATTRIBUTES
@@ -90,9 +86,7 @@ class UserDashboard < Administrate::BaseDashboard
   FORM_ATTRIBUTES = [
     :name,
     :email,
-    :admin,
-    :password,
-    :password_confirmation
+    :admin
   ].freeze
 
   # Overwrite this method to customize how users are displayed
