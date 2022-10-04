@@ -4,6 +4,7 @@
 #
 #  id           :bigint           not null, primary key
 #  absences     :integer
+#  email        :string
 #  student_name :string
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null

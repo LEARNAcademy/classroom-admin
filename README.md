@@ -98,3 +98,6 @@ app/controllers/users/your_model.rb
    ```
    $ yarn build:update
    ```
+
+### Rails classroom-admin
+- For the admin side of the app, only controllers namespaced to  Admin will have modify the behaviour of the app.

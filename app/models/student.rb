@@ -4,6 +4,7 @@
 #
 #  id           :bigint           not null, primary key
 #  absences     :integer
+#  email        :string
 #  student_name :string
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
@@ -20,7 +21,7 @@
 #  fk_rails_...  (cohort_id => cohorts.id)
 #
 class Student < ApplicationRecord
-  attr_accessor :email, :name
+  attr_accessor :email
 
   belongs_to :cohort
 
@@ -34,11 +35,10 @@ class Student < ApplicationRecord
   after_create :create_assessments
 
   def invite_user
-    if user&.email.present? && user&.id.blank?
-      self.user = User.invite!(email: user.email, name: user.name)
+    unless self.user && User.find_by(email: self.email)
+      self.user = User.build(email: self.email, name: self.student_name, admin: false)
     end
   end
-
 
   def create_assessments
     (1..6).map do |i|

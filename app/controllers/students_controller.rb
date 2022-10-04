@@ -15,7 +15,7 @@ class StudentsController < ApplicationController
   # GET /students/new
   def new
     @student = Student.new
-    @student.build_user
+    # @student.build_user
     # Uncomment to authorize with Pundit
     # authorize @student
   end
