@@ -36,7 +36,8 @@ class UserDashboard < Administrate::BaseDashboard
     invitations_count: Field::Number,
     terms_of_service: Field::Boolean,
     accepted_terms_at: Field::DateTime,
-    accepted_privacy_at: Field::DateTime
+    accepted_privacy_at: Field::DateTime,
+    students: Field::NestedHasMany.with_options(skip: :user)
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -48,14 +49,14 @@ class UserDashboard < Administrate::BaseDashboard
     :id,
     :name,
     :email,
-    :accounts
+    :admin
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
-    :id,
     :name,
+    :admin,
     :email,
     :accounts,
     :time_zone,
@@ -67,7 +68,6 @@ class UserDashboard < Administrate::BaseDashboard
     :confirmed_at,
     :confirmation_sent_at,
     :unconfirmed_email,
-    :admin,
     :accepted_terms_at,
     :accepted_privacy_at,
     :created_at,

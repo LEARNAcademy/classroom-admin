@@ -24,8 +24,8 @@ Rails.application.routes.draw do
       resources :users do
         resource :impersonate, module: :user
       end
-      resources :accounts
-      resources :account_users
+      # resources :accounts
+      # resources :account_users
 
       root to: "dashboard#show"
     end

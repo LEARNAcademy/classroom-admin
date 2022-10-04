@@ -58,3 +58,7 @@ gem "tzinfo-data", platforms: %i[mingw mswin x64_mingw jruby]
 gem "web-console", group: [:development]
 gem "webdrivers", group: [:test]
 gem "whenever", "~> 1.0", require: false
+
+gem "administrate-field-nested_has_many", "~> 1.3"
+
+gem "devise_invitable", "~> 2.0"

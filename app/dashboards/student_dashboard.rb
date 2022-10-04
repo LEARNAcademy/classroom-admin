@@ -15,6 +15,7 @@ class StudentDashboard < Administrate::BaseDashboard
     id: Field::Number,
     absences: Field::Number,
     cohort: Field::BelongsTo,
+    email: Field::String,
     assessments: Field::HasMany.with_options(
       limit: 6
     ),
@@ -29,7 +30,6 @@ class StudentDashboard < Administrate::BaseDashboard
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = %i[
     student_name
-    id
     cohort
     absences
   ].freeze
@@ -37,12 +37,9 @@ class StudentDashboard < Administrate::BaseDashboard
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = %i[
-    id
     student_name
     cohort
     absences
-    created_at
-    updated_at
     assessments
   ].freeze
 
@@ -53,6 +50,7 @@ class StudentDashboard < Administrate::BaseDashboard
     student_name
     cohort
     absences
+    email
   ].freeze
 
   # COLLECTION_FILTERS

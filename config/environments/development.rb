@@ -70,7 +70,7 @@ Rails.application.configure do
   # config.action_cable.disable_request_forgery_protection = true
 
   # Set the default URL for ActionMailer in development.
-  config.action_mailer.default_url_options = {host: "lvh.me", port: ENV.fetch("PORT", 3000).to_i}
+  config.action_mailer.default_url_options = {host: "lvh.me", port: ENV.fetch("PORT", 3001).to_i}
   config.action_mailer.delivery_method = :letter_opener_web
 
   # Allow accessing localhost on any domain. Important for testing multi-tenant apps

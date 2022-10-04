@@ -54,7 +54,7 @@ class User < ApplicationRecord
 
   # Include default devise modules. Others available are:
   # :lockable, :timeoutable, andle :trackable
-  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable, :confirmable
+  devise :invitable, :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable, :confirmable
 
   has_noticed_notifications
   has_person_name
@@ -68,13 +68,20 @@ class User < ApplicationRecord
   has_many :api_tokens, dependent: :destroy
   has_many :notifications, as: :recipient, dependent: :destroy
   has_many :notification_tokens, dependent: :destroy
+  has_many :students, dependent: :destroy
+
+  accepts_nested_attributes_for(
+    :students,
+    reject_if: :all_blank,
+    allow_destroy: true
+  )
   # We don't need users to confirm their email address on create,
   # just when they change it
   before_create :skip_confirmation!
 
   # Validations
-  validates :name, presence: true
-  validates :avatar, resizable_image: true
+  validates :name, presence: true, length: {in: 3..30}
+  # validates :avatar, resizable_image: true
 
   # When ActionText rendering mentions in plain text
   def attachable_plain_text_representation(caption = nil)

@@ -4,25 +4,41 @@
 #
 #  id           :bigint           not null, primary key
 #  absences     :integer
+#  email        :string
 #  student_name :string
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
 #  cohort_id    :bigint           not null
+#  user_id      :bigint
 #
 # Indexes
 #
 #  index_students_on_cohort_id  (cohort_id)
+#  index_students_on_user_id    (user_id)
 #
 # Foreign Keys
 #
 #  fk_rails_...  (cohort_id => cohorts.id)
 #
 class Student < ApplicationRecord
+  attr_accessor :email
+
   belongs_to :cohort
+
+  belongs_to :user
+  accepts_nested_attributes_for :user
+
   has_many :assessments, dependent: :destroy
   accepts_nested_attributes_for :assessments, allow_destroy: true
 
+  before_validation :invite_user, on: :create
   after_create :create_assessments
+
+  def invite_user
+    unless user && User.find_by(email: email)
+      self.user = User.invite!(email: email, name: student_name, admin: false)
+    end
+  end
 
   def create_assessments
     (1..6).map do |i|

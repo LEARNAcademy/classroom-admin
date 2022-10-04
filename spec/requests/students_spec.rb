@@ -22,7 +22,8 @@ RSpec.describe "/students", type: :request do
     {
       cohort_id: cohort.id,
       student_name: "Don",
-      absences: 0
+      absences: 0,
+      email: "testStudent@email.com"
     }
   }
 
@@ -30,7 +31,8 @@ RSpec.describe "/students", type: :request do
     {
       cohort_id: nil,
       student_name: nil,
-      absences: nil
+      absences: nil,
+      email: nil
     }
   }
 
