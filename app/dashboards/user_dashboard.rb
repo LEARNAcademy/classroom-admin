@@ -52,7 +52,7 @@ class UserDashboard < Administrate::BaseDashboard
     :name,
     :email,
     :admin
-    
+
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -80,8 +80,8 @@ class UserDashboard < Administrate::BaseDashboard
     :invitation_sent_at,
     :invitation_accepted_at,
     :invitation_limit,
-    :invitations_count,
-    
+    :invitations_count
+
   ].freeze
 
   # FORM_ATTRIBUTES

@@ -25,5 +25,6 @@ FactoryBot.define do
     cohort { FactoryBot.create(:cohort) }
     student_name { "Don" }
     absences { 0 }
+    email { "testStudent@email.com" }
   end
 end

@@ -35,8 +35,8 @@ class Student < ApplicationRecord
   after_create :create_assessments
 
   def invite_user
-    unless self.user && User.find_by(email: self.email)
-      self.user = User.build(email: self.email, name: self.student_name, admin: false)
+    unless user && User.find_by(email: email)
+      self.user = User.invite!(email: email, name: student_name, admin: false)
     end
   end
 

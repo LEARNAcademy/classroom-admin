@@ -22,12 +22,12 @@ class Cohort < ApplicationRecord
 
   # student creation from csv
   # after_create :create_students
-  # def create_students 
+  # def create_students
   #   CSV.parse(cohort[student_csv].download,  headers: true) do |row|
   #     student = {
   #       first_name: row["First Name"],
   #       last_name: row["Last Name"],
-  #       pref_name: row["Preferred Name"]  
+  #       pref_name: row["Preferred Name"]
   #     }
   #     # student[:first_name] = row["First Name"]
   #     # last_name = row["Last Name"]

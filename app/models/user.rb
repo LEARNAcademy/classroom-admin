@@ -80,7 +80,7 @@ class User < ApplicationRecord
   before_create :skip_confirmation!
 
   # Validations
-  validates :name, presence: true, length: {in: 3..20}, format: {with: /\A[a-zA-Z]*\z/}
+  validates :name, presence: true, length: {in: 3..30}
   # validates :avatar, resizable_image: true
 
   # When ActionText rendering mentions in plain text
