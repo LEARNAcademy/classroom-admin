@@ -445,7 +445,7 @@ en:
     account_transferred: "%{previous_owner} made you owner of the %{account} account."
     empty: "Nothing to see here — yet."
     empty_description: "We'll let you know when you have new notifications."
-    new_announcement:
+    new_announcement_notification:
       hello: "Hello, you have a new announcement."
 
   activerecord:
