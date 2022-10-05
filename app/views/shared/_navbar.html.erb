@@ -64,12 +64,6 @@
               <div class="overflow-hidden bg-white border border-gray-200 rounded shadow-md">
                 <%= link_to current_account.name, current_account, class: 'border-b border-gray-200 no-underline block px-6 py-3 font-semibold text-base text-gray-800 bg-white hover:bg-primary transition ease-in-out duration-200 whitespace-nowrap' %>
                 <%= link_to t(".profile"), edit_user_registration_path, class: 'no-underline block px-6 py-3 text-gray-800 bg-white hover:bg-primary-50 transition ease-in-out duration-200 whitespace-nowrap' %>
-                <%= link_to t(".password"), account_password_path, class: 'no-underline block px-6 py-3 text-gray-800 bg-white  hover:bg-primary-50 transition ease-in-out duration-200 whitespace-nowrap' %>
-                <%= link_to t(".accounts"), accounts_path, class: 'no-underline block px-6 py-3 text-gray-800 bg-white  hover:bg-primary-50 transition ease-in-out duration-200 whitespace-nowrap' %>
-                <!--
-                <div class="px-6 py-3 text-xs font-bold text-gray-800 uppercase bg-white border-t border-gray-200">Accounts</div>
-                -->
-
                 <% if other_accounts.any? %>
                   <div class="px-6 py-3 text-xs font-bold text-gray-800 uppercase bg-white border-t border-gray-200">Switch Account</div>
                   <% current_user.accounts.order(name: :asc).where.not(id: current_account.id).each do |account| %>
