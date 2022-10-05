@@ -32,7 +32,7 @@ class Student < ApplicationRecord
   accepts_nested_attributes_for :assessments, allow_destroy: true
 
   before_validation :invite_user, on: :create
-  after_create :create_assessments
+  after_create_commit :create_assessments
 
   def invite_user
     unless user && User.find_by(email: email)
