@@ -21,9 +21,14 @@ module Admin
 
     def order
       @order ||= Administrate::Order.new(
-        params.fetch(resource_name, {}).fetch(:order, "id"),
-        params.fetch(resource_name, {}).fetch(:direction, "asc")
+        params.fetch(resource_name, {}).fetch(:order, default_sort[:order]),
+        params.fetch(resource_name, {}).fetch(:direction, default_sort[:direction])
       )
+    end
+
+    # override this in specific controllers as needed
+    def default_sort
+      {order: :id, direction: :asc}
     end
 
     # Override this value to specify the number of elements to display at a time
