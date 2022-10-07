@@ -480,6 +480,11 @@ en:
 
   helpers:
     label:
+      cohort:
+        cohort_name: "Cohort"
+        cohort_year: "Year"
+      student:
+        student_name: "Name"
       country: "Country or region"
       account:
         name: "Account Name"
