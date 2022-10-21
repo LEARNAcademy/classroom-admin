@@ -62,3 +62,5 @@ gem "whenever", "~> 1.0", require: false
 gem "administrate-field-nested_has_many", "~> 1.3"
 
 gem "devise_invitable", "~> 2.0"
+
+gem 'rack-cors', :require => 'rack/cors'

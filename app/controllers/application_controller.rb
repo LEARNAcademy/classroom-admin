@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::Base
+  # may need for CORS
+  # skip_before_action :verify_authenticity_token
   protect_from_forgery with: :exception
 
   include BundleAssets
@@ -48,4 +50,13 @@ class ApplicationController < ActionController::Base
       redirect_to root_path, alert: t("must_be_an_admin")
     end
   end
+
+  def cors_set_access_control_headers
+    headers['Access-Control-Allow-Origin'] = '*'
+    headers['Access-Control-Allow-Methods'] = 'POST, GET'
+    headers['Access-Control-Request-Method'] = '*'
+    headers['Access-Control-Allow-Headers'] = '*'
+    headers['Access-Control-Max-Age'] = "1728000"
+  end
+
 end
