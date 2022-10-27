@@ -13,12 +13,12 @@ class NotificationsController < ApplicationController
     @notification.mark_as_interacted!
     redirect_to @notification.to_notification.url
   end
-  
+
   private
 
   def authenticate_admin
-    if current_user && current_user.admin?
-      index()
+    if current_user&.admin?
+      index
     else
       redirect_to "/404"
     end
