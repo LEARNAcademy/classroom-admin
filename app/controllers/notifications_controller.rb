@@ -1,5 +1,6 @@
 class NotificationsController < ApplicationController
   before_action :authenticate_user!
+  before_action :authenticate_admin
   before_action :set_notification, only: [:show]
   after_action :mark_as_read, only: [:index]
 
@@ -12,8 +13,16 @@ class NotificationsController < ApplicationController
     @notification.mark_as_interacted!
     redirect_to @notification.to_notification.url
   end
-
+  
   private
+
+  def authenticate_admin
+    if current_user && current_user.admin?
+      index()
+    else
+      redirect_to "/404"
+    end
+  end
 
   def set_notification
     @notification = current_user.notifications.find(params[:id])
