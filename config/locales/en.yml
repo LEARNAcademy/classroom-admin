@@ -199,6 +199,8 @@ en:
       title: "Terms & Conditions"
     conduct:
       title: "Code of Conduct"
+    contributors:
+      title: "Contributors"
 
   shared:
     footer:
@@ -206,6 +208,7 @@ en:
       privacy: "Privacy Policy"
       terms: "Terms of Use"
       conduct: "Code of Conduct"
+      contributors: "Contributors"
     account_navbar:
       profile: "Profile"
       password: "Password"
