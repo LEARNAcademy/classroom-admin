@@ -2,28 +2,55 @@
   <h1 class="text-learnpurple mt-4 mb-12">
     <%= t(".title") %>
   </h1>
-  <a class="btn btn-primary btn-small" target="_blank" href="https://learn-student.onrender.com/">Student App</a>
+  <a class="btn btn-primary btn-small" target="_blank" href="https://learn-student.onrender.com/">Go To Student App</a>
   <p class="my-3">
    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
   </p>
-  <h2 class="text-learnblack text-2xl">
+  <hr/>
+  <h2 class="text-learnblack text-2xl mt-5">
     Meet the team
   </h2>
-  <p class="my-3">
-    <strong>Don</strong>: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<a class="text-learnpurple hover:text-learngreen active:text-learngreen" href="https://www.linkedin.com/">LinkedIn</a>
-    <a class="text-learnpurple hover:text-learngreen active:text-learngreen" href="https://www.github.com/">Github</a>
-  </p>
-  <p class="my-3">
-    <strong>Logan</strong>: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<a class="text-learnpurple hover:text-learngreen active:text-learngreen" href="https://www.linkedin.com/">LinkedIn</a>
-    <a class="text-learnpurple hover:text-learngreen active:text-learngreen" href="https://www.github.com/">Github</a>
-  </p>
-  <p class="my-3">
-    <strong>Nicole</strong>: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<a class="text-learnpurple hover:text-learngreen active:text-learngreen" href="https://www.linkedin.com/">LinkedIn</a>
-    <a class="text-learnpurple hover:text-learngreen active:text-learngreen" href="https://www.github.com/">Github</a>
-  </p>
-  <p class="my-3">
-    <strong>Will</strong>: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-  </p>
-    <a href="https://www.linkedin.com/"><%= render_svg 'linkedin', styles: "fill-current text-gray-600 hover:text-gray-700" %></a>
-    <a href="https://www.github.com/"><%= render_svg 'github', styles: "fill-current text-gray-600 hover:text-gray-700" %></a>
+  <% contributors = [
+    {:name => "Francisco", :bio => "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", :cohort => "Echo 22", :linkedin => "https://www.linkedin.com/in/francisco-solis-02191995/", :github => "https://github.com/fpsolis219", :image =>"https://media-exp1.licdn.com/dms/image/C4D03AQGTFrJ26HbMcg/profile-displayphoto-shrink_100_100/0/1612635273814?e=1672876800&v=beta&t=O5uo8BiipLB8aXLbzpGcDUVSFVitfmu-GxDjiTvdRcQ"},
+    {:name => "Jason", :bio => "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", :cohort => "Echo 22", :linkedin => "https://www.linkedin.com/in/jason-brown-6b4707b/", :github => "https://github.com/jayaries329", :image =>"https://media-exp1.licdn.com/dms/image/C5603AQEFOj6Gu5Q9NQ/profile-displayphoto-shrink_100_100/0/1663361580238?e=1672876800&v=beta&t=b77ULxsMuYrGyes_cOeY7wvJGG5ZUXwzyqbg_QPF4Jw"},
+    {:name => "Elijah", :bio => "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", :cohort => "Echo 22", :linkedin => "https://www.linkedin.com/in/elijah-barreto/", :github => "https://github.com/ElijahBcodes", :image =>"https://media-exp1.licdn.com/dms/image/D5603AQHZZ1jtS71Imw/profile-displayphoto-shrink_100_100/0/1666645779429?e=1672876800&v=beta&t=7xn5l8iSSbLJYsHZwNwV9PnFOBPkwtSVLi_IMF6sWGI"},
+    {:name => "Will", :bio => "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", :cohort => "Delta 22", :linkedin => "https://www.linkedin.com/in/deanna-will-williams/", :github => "https://github.com/DFWilliams", :image =>"https://media-exp1.licdn.com/dms/image/C4D03AQGZ7mF2y-CZEw/profile-displayphoto-shrink_200_200/0/1663802530270?e=1672876800&v=beta&t=w9WbjYLpf1MA41tIROJAd64nceHAbF33CtKCmrmX93c"}, 
+    {:name => "Gene", :bio => "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", :cohort => "Delta 22", :linkedin => "https://www.linkedin.com/in/gene-martinez/", :github => "https://github.com/Genemichael25", :image => "https://media-exp1.licdn.com/dms/image/D5603AQEVq3-lD11eUQ/profile-displayphoto-shrink_800_800/0/1665111891460?e=1672876800&v=beta&t=DKI1KtvfL7DoTqjXsKFB4cUBRwDOhDi8mpAgh5sWi5U"},
+    {:name => "Nicole", :bio => "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", :cohort => "Delta 22", :linkedin => "https://www.linkedin.com/in/nicole-mares-rivera/", :github => "https://github.com/nmaresrivera11", :image =>"https://media-exp1.licdn.com/dms/image/C4E03AQHKsFWNhNcpcw/profile-displayphoto-shrink_100_100/0/1658805419347?e=1672876800&v=beta&t=UEBW88GaAv0fE-rN8FLCb6ZyT_yE4Zj2jPJRXIYLvbs"},
+    {:name => "Luis", :bio => "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", :cohort => "Delta 22", :linkedin => "https://www.linkedin.com/in/luis-ramos1/", :github => "https://github.com/ninerboy81", :image =>"https://media-exp1.licdn.com/dms/image/D5635AQF_2SlZ8_vTrQ/profile-framedphoto-shrink_100_100/0/1664580063482?e=1667937600&v=beta&t=srjEp2hPJ3uApoT9QlDf1XLu5tiFEu1_LJlqdnFdET8"},
+    {:name => "Ahmed", :bio => "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", :cohort => "Delta 22", :linkedin => "https://www.linkedin.com/in/ahmed-alkhafaji/", :github => "https://github.com/Ahmedkhafaji", :image =>"https://media-exp1.licdn.com/dms/image/C4E03AQFkhDgRPXVJcg/profile-displayphoto-shrink_100_100/0/1659028736504?e=1672876800&v=beta&t=cYwg0kCIP__yV4b28J4AhFehTP2r6wM3B7RVYSFv0UY"},
+    {:name => "Don", :bio => "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", :cohort => "Charlie 22", :linkedin => "https://www.linkedin.com/in/don-yoon/", :github => "https://github.com/don-yoon", :image =>"https://media-exp1.licdn.com/dms/image/D4D35AQH96E1rJ-jlaw/profile-framedphoto-shrink_100_100/0/1656358233624?e=1667944800&v=beta&t=5Lk8cpKJwMjValEMJwfPSktHJcGAgUTK5Z3QT3X2SFM"},  
+    {:name => "Logan", :bio => "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", :cohort => "Charlie 22", :linkedin => "https://www.linkedin.com/in/loganramos/", :github => "https://github.com/Renzlawr", :image =>"https://media-exp1.licdn.com/dms/image/D4E35AQGHaeFXbLVpvw/profile-framedphoto-shrink_100_100/0/1663101626179?e=1667944800&v=beta&t=H_eD-dtxc3Jflsp8z5S32-8WW2JRhQtIW233u0GizfU"},
+    {:name => "Sarah", :bio => "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", :cohort => "Delta", :linkedin => "https://www.linkedin.com/in/sarah-proctor-sd/", :github => "https://github.com/sjproctor", :image =>"https://media-exp1.licdn.com/dms/image/C5603AQG9g28R_jOZVw/profile-displayphoto-shrink_100_100/0/1572932473516?e=1672876800&v=beta&t=azzxybOkIe_Vc4A1826ieDAjnEpAnKEevl7yqvAU79A"},    
+  ] %>
+  <% contributors.map do |contributor| %>
+  
+  <div class="max-w-sm rounded-md border inline-block mt-5 h-[100%] justify-items-center">
+    <div class="flex flex-col items-center p-3">
+      <img
+        class="h-16 w-16 rounded-full"
+        src=<%= contributor[:image] %>
+        alt="Contributor image"
+      />
+      <h5 class="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+        <%= contributor[:name] %>
+      </h5>
+      <span class="font-light leading-tight"><%= contributor[:cohort] %></span>
+      <p class="flex-wrap font-normal text-gray-700 dark:text-gray-400 text-center">
+        "<%= contributor[:bio] %>"
+      </p>
+    </div>
+    <div class="flex flex-col items-center pb-3">
+      <div class="flex justify-evenly">
+          <a href=<%= contributor[:github] %> target="_blank" class="m-5">
+            <%= render_svg 'github', styles: "fill-current text-gray-600 hover:text-gray-700" %>
+          </a>
+          <a href= <%= contributor[:linkedin] %> target="_blank">
+            <%= render_svg 'linkedin', styles: "fill-current text-gray-600 hover:text-gray-700" %>
+          </a>
+      </div>
+    </div>
+  </div>
+        
+  <% end %>
 </div>
