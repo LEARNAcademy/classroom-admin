@@ -21,7 +21,8 @@
 #  fk_rails_...  (cohort_id => cohorts.id)
 #
 class Student < ApplicationRecord
-  attr_accessor :email
+  include DeviseInvitable::Inviter
+  attr_accessor :email, :skip_invitation
 
   belongs_to :cohort
 
@@ -31,20 +32,9 @@ class Student < ApplicationRecord
   has_many :assessments, dependent: :destroy
   accepts_nested_attributes_for :assessments, allow_destroy: true
 
-  before_validation :invite_user, on: :create
-  after_create_commit :create_assessments
-
-  def invite_user
-    unless user && User.find_by(email: email)
-      self.user = User.invite!(email: email, name: student_name, admin: false)
-    end
-  end
-
-  def create_assessments
-    (1..6).map do |i|
-      Assessment.create({student_id: id, week: i, comprehension: 0, status: 0, reviewer: "N/A", notes: "N/A"})
-    end
-  end
+  before_validation :create_user_invitation, on: :create
+  after_create :send_user_invitation
+  after_create :create_assessments
 
   validates :absences, presence: true, numericality: {in: 0..10}
   validates :student_name, presence: true, length: {in: 3..20}, format: {with: /\A[a-zA-Z]*\z/}
@@ -53,4 +43,22 @@ class Student < ApplicationRecord
   after_create_commit -> { broadcast_prepend_later_to :students, partial: "students/index", locals: {student: self} }
   after_update_commit -> { broadcast_replace_later_to self }
   after_destroy_commit -> { broadcast_remove_to :students, target: dom_id(self, :index) }
+
+  private
+
+  def create_user_invitation
+    unless User.find_by(email: email)
+      self.user = User.invite!(email: email, name: student_name, admin: false, skip_invitation: true)
+    end
+  end
+
+  def send_user_invitation
+    self.user = User.invite!(email: email)
+  end
+
+  def create_assessments
+    (1..6).map do |i|
+      Assessment.create({student_id: id, week: i, comprehension: 0, status: 0, reviewer: "N/A", notes: "N/A"})
+    end
+  end
 end
