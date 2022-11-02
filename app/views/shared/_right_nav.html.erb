@@ -1,6 +1,6 @@
 <%# Place any links for the RIGHT side of the nav bar here. Be sure to add class: "nav-link" to each item for proper spacing. %>
 
-<%= if current_user
+<%= if current_user && current_user.admin?
      nav_link_to 'Create Announcement', '/admin/announcements/new', class: ["nav-link"] 
 end%>
 

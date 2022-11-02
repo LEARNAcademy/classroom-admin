@@ -17,7 +17,8 @@ class StudentDashboard < Administrate::BaseDashboard
     cohort: Field::BelongsTo,
     email: Field::String,
     assessments: Field::HasMany.with_options(
-      limit: 6
+      limit: 6,
+      sort_by: "week"
     ),
     created_at: Field::DateTime,
     updated_at: Field::DateTime

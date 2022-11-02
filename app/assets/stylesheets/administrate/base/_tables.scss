@@ -5,6 +5,9 @@ table {
   width: 100%;
 
   a {
+    &:hover{
+      color: $learnpurple;
+    }
     color: inherit;
     text-decoration: none;
   }

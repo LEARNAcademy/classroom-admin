@@ -199,6 +199,8 @@ en:
       title: "Terms & Conditions"
     conduct:
       title: "Code of Conduct"
+    contributors:
+      title: "Contributors"
 
   shared:
     footer:
@@ -206,6 +208,7 @@ en:
       privacy: "Privacy Policy"
       terms: "Terms of Use"
       conduct: "Code of Conduct"
+      contributors: "Contributors"
     account_navbar:
       profile: "Profile"
       password: "Password"
@@ -445,7 +448,7 @@ en:
     account_transferred: "%{previous_owner} made you owner of the %{account} account."
     empty: "Nothing to see here — yet."
     empty_description: "We'll let you know when you have new notifications."
-    new_announcement:
+    new_announcement_notification:
       hello: "Hello, you have a new announcement."
 
   activerecord:
@@ -480,6 +483,11 @@ en:
 
   helpers:
     label:
+      cohort:
+        cohort_name: "Cohort"
+        cohort_year: "Year"
+      student:
+        student_name: "Name"
       country: "Country or region"
       account:
         name: "Account Name"
