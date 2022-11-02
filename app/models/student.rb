@@ -53,8 +53,7 @@ class Student < ApplicationRecord
   end
 
   def send_user_invitation
-    self.user = User.find_by(email: email)
-    self.user.invite!
+    self.user = User.invite!(email: email)
   end
 
   def create_assessments
