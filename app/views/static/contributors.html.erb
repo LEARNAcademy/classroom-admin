@@ -41,8 +41,8 @@
       </p>
     </div>
     <div class="flex flex-col items-center pb-3">
-      <div class="flex justify-evenly">
-          <a href=<%= contributor[:github] %> target="_blank" class="m-5">
+      <div class="flex flex-row">
+          <a href=<%= contributor[:github] %> target="_blank">
             <%= render_svg 'github', styles: "fill-current text-gray-600 hover:text-gray-700" %>
           </a>
           <a href= <%= contributor[:linkedin] %> target="_blank">
