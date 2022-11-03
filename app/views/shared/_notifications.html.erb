@@ -5,7 +5,7 @@
     notifications_account_unread_value: @account_unread,
     notifications_total_unread_value: @total_unread,
   } do %>
-
+<% if current_user && current_user.admin? %>
   <div class="relative" data-controller="dropdown">
     <%# Marks all notifications as read when menu opens by default. Remove the notifications Stimulus actions to disable this. %>
     <%= tag.button class: "inline-block select-none",
@@ -29,4 +29,5 @@
       </div>
     </div>
   </div>
+  <% end %>
 <% end %>
