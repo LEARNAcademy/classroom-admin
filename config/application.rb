@@ -24,7 +24,6 @@ Bundler.require(*Rails.groups)
 # This is the main application class that our code runs in
 module Classroom
   class Application < Rails::Application
-
     # Attempt to config CORS
     # config.middleware.insert_before 0, Rack::Cors do
     #   allow do
@@ -32,7 +31,7 @@ module Classroom
     #     resource '*', :headers => :any, :methods => :any
     #   end
     # end
-    
+
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
 
