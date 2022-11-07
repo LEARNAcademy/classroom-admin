@@ -47,7 +47,8 @@ Rails.application.routes.draw do
   devise_for :users,
     controllers: {
       registrations: "users/registrations",
-      sessions: "users/sessions"
+      sessions: "users/sessions",
+      invitations: "users/invitations"
     }
   devise_scope :user do
     get "session/otp", to: "sessions#otp"
