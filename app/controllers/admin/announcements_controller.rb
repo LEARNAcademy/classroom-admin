@@ -3,6 +3,14 @@ module Admin
     # Overwrite any of the RESTful controller actions to implement custom behavior
     # For example, you may want to send an email after a foo is updated.
     #
+    def create 
+      announcement = Announcement.create(announcement_params)
+      if announcement.valid?
+        render json: announcement
+      else
+        render json: announcement.errors, status: 422
+      end
+    end
     # def update
     #   foo = Foo.find(params[:id])
     #   foo.update(params[:foo])
@@ -30,5 +38,9 @@ module Admin
 
     # See https://administrate-prototype.herokuapp.com/customizing_controller_actions
     # for more information
+  private
+    def announcement_params
+      params.require(:announcement).permit(:kind, :title, :description, :published_at, :user_id)
+    end
   end
 end

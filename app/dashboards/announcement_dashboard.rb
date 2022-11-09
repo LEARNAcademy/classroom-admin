@@ -14,7 +14,8 @@ class AnnouncementDashboard < Administrate::BaseDashboard
     description: Field::RichText,
     published_at: Field::DateTime,
     created_at: Field::DateTime,
-    updated_at: Field::DateTime
+    updated_at: Field::DateTime,
+    user_id: Field::Number
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -48,7 +49,8 @@ class AnnouncementDashboard < Administrate::BaseDashboard
     :kind,
     :title,
     :description,
-    :published_at
+    :published_at,
+    :user_id
   ].freeze
 
   # Overwrite this method to customize how announcements are displayed
