@@ -4,13 +4,14 @@ module Admin
     # For example, you may want to send an email after a foo is updated.
     #
     def create 
-      announcement = Announcement.create(announcement_params)
-      if announcement.valid?
-        render json: announcement
+      @announcement = Announcement.create(announcement_params.merge(user_id: current_user.id))
+      if @announcement.valid?
+        redirect_to announcements_path
       else
-        render json: announcement.errors, status: 422
+        # needs a notice or something saying not valid
       end
     end
+    
     # def update
     #   foo = Foo.find(params[:id])
     #   foo.update(params[:foo])
