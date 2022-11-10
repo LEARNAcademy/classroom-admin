@@ -23,9 +23,8 @@ class NewAnnouncementNotification < ApplicationNotification
 
   def message
     @announcement = Announcement.find(params[:announcement][:id])
-    @account_user = AccountUser.find_by(id: record.account_id)
-    @user = User.find_by(id: @account_user.user_id)
-    "#{@announcement.title.titleize} created by #{@user.name} "
+    @user = User.find_by(id: @announcement.user_id)
+    "#{@announcement.title.titleize} created by #{@user.first_name} "
   end
 
   def url

@@ -8,11 +8,21 @@
 #  title        :string
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
+#  user_id      :bigint
+#
+# Indexes
+#
+#  index_announcements_on_user_id  (user_id)
+#
+# Foreign Keys
+#
+#  fk_rails_...  (user_id => users.id)
 #
 
 class Announcement < ApplicationRecord
-  TYPES = %w[new fix improvement update]
+  TYPES = %w[New Fix Improvement Update]
 
+  belongs_to :user
   has_rich_text :description
 
   validates :kind, :title, :description, :published_at, presence: true
@@ -27,7 +37,7 @@ class Announcement < ApplicationRecord
   private
 
   def notify_recipient
-    NewAnnouncementNotification.with(announcement: self).deliver_later(User.all)
+    NewAnnouncementNotification.with(announcement: self).deliver_later(User.where(admin: true))
   end
 
   def cleanup_notifications
