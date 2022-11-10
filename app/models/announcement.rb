@@ -37,7 +37,7 @@ class Announcement < ApplicationRecord
   private
 
   def notify_recipient
-    NewAnnouncementNotification.with(announcement: self).deliver_later(User.all)
+    NewAnnouncementNotification.with(announcement: self).deliver_later(User.where(admin: true))
   end
 
   def cleanup_notifications

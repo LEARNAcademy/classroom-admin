@@ -9,8 +9,6 @@ module Admin
         redirect_to(fallback_location: announcements_path)
         flash.alert = "Announcement was successfully created."
       else
-        # needs a notice or something saying not valid
-        # redirect_to Announcement
         redirect_back(fallback_location: announcements_path)
         flash.alert = "Announcement error."
       end
