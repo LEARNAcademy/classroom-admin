@@ -1,7 +1,7 @@
-<nav class="flex flex-wrap items-center justify-between px-8 py-2 h-32 w-full bg-learngray text-sm font-medium" data-controller="toggle">
+<nav class="flex flex-wrap items-center justify-between px-8 py-2 h-auto w-full bg-learngray text-sm font-medium" data-controller="toggle">
   <div class="flex items-center flex-shrink-0 mr-6">
     <%= link_to root_path do %>
-      <%= render_svg "logo", styles: "fill-current text-gray-700 hover:text-gray-800" %>
+      <%= render_svg "logo", styles: "fill-current text-gray-700 hover:text-gray-800 h-32" %>
       <span class="sr-only"><%= ENV.fetch('APP_NAME', '') %></span>
     <% end %>
   </div>
