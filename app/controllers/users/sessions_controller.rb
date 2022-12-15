@@ -1,8 +1,8 @@
 class Users::SessionsController < Devise::SessionsController
   include Devise::Controllers::Rememberable
-
-  prepend_before_action :authenticate_with_two_factor, only: [:create]
-
+  skip_before_action :verify_authenticity_token
+  # prepend_before_action :authenticate_with_two_factor, only: [:create]
+  respond_to :json
   # We need to intercept the create action for processing OTP.
   # Unfortunately we can't override `create` because any code that calls `current_user` will
   # automatically log the user in without OTP. To prevent that, we just have to handle it in
@@ -42,4 +42,30 @@ class Users::SessionsController < Devise::SessionsController
       resource_class.find_by(email: sign_in_params[:email])
     end
   end
+
+  private
+
+  def respond_with(resource, _opts = {})
+    if current_user
+    render json: {
+      status: {code: 200, message: 'Logged in sucessfully.'},
+      user: current_user
+    }, status: :ok
+    end
+  end
+
+  def respond_to_on_destroy
+    if current_user
+      render json: {
+        status: 200,
+        message: "logged out successfully"
+      }, status: :ok
+    else
+      render json: {
+        status: 401,
+        message: "Couldn't find an active session."
+      }, status: :unauthorized
+    end
+  end
+
 end

@@ -5,10 +5,13 @@
 
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    origins "https://learn-student.onrender.com/" # <- change this to allow requests from any domain while in development.
+    origins "*" # <- change this to allow requests from any domain while in development.
 
-    resource "*",
+    resource( 
+      "*",
       headers: :any,
-      methods: [:get, :post, :put, :patch, :delete, :options, :head]
+      expose: ["Authorization"],
+      methods: [:get, :post, :put, :patch, :delete, :options, :show]
+    )
   end
 end
