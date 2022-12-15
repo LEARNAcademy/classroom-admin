@@ -58,6 +58,7 @@ class User < ApplicationRecord
   # :lockable, :timeoutable, andle :trackable
   include Devise::JWT::RevocationStrategies::JTIMatcher
 
+  # Added JWT
   devise :invitable, :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable, :confirmable,
          :jwt_authenticatable, 
          jwt_revocation_strategy: self
