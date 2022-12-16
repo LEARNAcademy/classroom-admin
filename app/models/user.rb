@@ -60,8 +60,8 @@ class User < ApplicationRecord
 
   # Added JWT
   devise :invitable, :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable, :confirmable,
-         :jwt_authenticatable, 
-         jwt_revocation_strategy: self
+    :jwt_authenticatable,
+    jwt_revocation_strategy: self
 
   has_noticed_notifications
   has_person_name

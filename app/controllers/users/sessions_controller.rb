@@ -47,10 +47,10 @@ class Users::SessionsController < Devise::SessionsController
 
   def respond_with(resource, _opts = {})
     if current_user
-    render json: {
-      status: {code: 200, message: 'Logged in sucessfully.'},
-      user: current_user
-    }, status: :ok
+      render json: {
+        status: {code: 200, message: "Logged in sucessfully."},
+        user: current_user
+      }, status: :ok
     end
   end
 
