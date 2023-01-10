@@ -1,5 +1,6 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   invisible_captcha only: :create
+  respond_to :json
 
   protected
 
