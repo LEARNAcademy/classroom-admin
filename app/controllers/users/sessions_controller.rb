@@ -47,6 +47,7 @@ class Users::SessionsController < Devise::SessionsController
 
   def respond_with(resource, _opts = {})
     if current_user
+      redirect_to root_path and return
       render json: {
         status: {code: 200, message: "Logged in sucessfully."},
         user: current_user
@@ -54,15 +55,15 @@ class Users::SessionsController < Devise::SessionsController
     end
   end
 
+  # This seems to be handling the verification for the current user, and if current user is verified, the user is logged out. Tested in postman by attaching JWT to request headers and worked correctly.
   def respond_to_on_destroy
-    if current_user
+    if !current_user
+      redirect_to root_path and return
       render json: {
-        status: 200,
         message: "logged out successfully"
       }, status: :ok
     else
       render json: {
-        status: 401,
         message: "Couldn't find an active session."
       }, status: :unauthorized
     end
