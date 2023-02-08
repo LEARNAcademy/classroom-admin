@@ -11,7 +11,7 @@ The purpose of the LEARN Academy student application is to streamline workflow a
   - `yarn`
   - `rails db:setup`
 
-### 🚧 Troubleshooting 🚜
+### 🚧 Troubleshooting
 
 - If Ruby version is not 3.1
   - `rvm install 3.1.0`
@@ -19,6 +19,10 @@ The purpose of the LEARN Academy student application is to streamline workflow a
   - `bundle update`
   - `bundle`
 - When `rails db:setup`, let the command finish.
+
+### Warning!
+
+- Do Not Run Any Command that looks like this: -`sudo apt install ruby-full`
 
 ### 🏁 Start the App
 
