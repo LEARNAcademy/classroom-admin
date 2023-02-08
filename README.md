@@ -11,6 +11,15 @@ The purpose of the LEARN Academy student application is to streamline workflow a
   - `yarn`
   - `rails db:setup`
 
+### 🚧 Troubleshooting 🚜
+
+- If Ruby version is not 3.1
+  - `rvm install 3.1.0`
+- When Running bundle, If error: "Your bundle is locked to administrate..."
+  - `bundle update`
+  - `bundle`
+- When `rails db:setup`, let the command finish.
+
 ### 🏁 Start the App
 
 Start the server by running `yarn build`
@@ -64,12 +73,13 @@ Fill out the Pull Request template.
 Project in managed in Notion. Reach out to a member of the team to gain access.
 
 You can view more about the accessability workflow for GitHub Actions here:
+
 - [accessibility insights action](https://github.com/microsoft/accessibility-insights-action/blob/main/docs/gh-action-usage.md)
 - [accessibility insights action usage](https://github.com/microsoft/accessibility-insights-action/blob/main/docs/gh-action-usage.md)
 
 ### Jumpstart Framework
 
-Once a scaffold has been generated for a model, a directory for that model will be generated with views, controllers, and specs. The views have partials (usually starts with an underscore _ ) that are rendered and must be modified to specification.
+Once a scaffold has been generated for a model, a directory for that model will be generated with views, controllers, and specs. The views have partials (usually starts with an underscore \_ ) that are rendered and must be modified to specification.
 
 The controllers need to be modified to handle newly generated columns otherwise turbo_stream will be unable to access those properties.
 
@@ -95,12 +105,13 @@ app/controllers/users/your_model.rb
 
 - If you're not seeing an updated page mid development.
 
-   ```
-   $ yarn build:update
-   ```
+  ```
+  $ yarn build:update
+  ```
 
 ### Rails classroom-admin
-- For the admin side of the app, only controllers namespaced to  Admin will have modify the behaviour of the app.
+
+- For the admin side of the app, only controllers namespaced to Admin will have modify the behaviour of the app.
 - please keep in mind unused controllers and routes to see if we can get rid of at a later time
   - app/models/concerns/user_agreements.rb
     ```ruby
