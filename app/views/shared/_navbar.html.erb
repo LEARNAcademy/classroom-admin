@@ -76,7 +76,7 @@
                   <%= link_to t(".dashboard"), admin_root_path, class: 'no-underline block px-6 py-3 text-gray-800 bg-white  hover:bg-primary-50 transition ease-in-out duration-200 whitespace-nowrap', data: { turbo: false } %>
                   <%= link_to 'Sidekiq', admin_sidekiq_web_path, class: 'no-underline block px-6 py-3 text-gray-800 bg-white  hover:bg-primary-50 transition ease-in-out duration-200 whitespace-nowrap', target: :_blank, data: { turbo: false } if defined?(::Sidekiq) %>
                 <% end %>
-                <% if Rails.env.development? %>
+                <% if Rails.env.development? && current_user.admin? %>
                   <div class="px-6 py-3 text-xs font-bold text-gray-800 uppercase bg-white border-t border-gray-200">Development</div>
                   <%= link_to 'Letter Opener', letter_opener_web_path(script_name: nil), class: 'no-underline block px-6 py-3 text-gray-800 bg-white  hover:bg-primary-50 transition ease-in-out duration-200 whitespace-nowrap', target: :_blank, data: { turbo: false } %>
                 <% end %>
