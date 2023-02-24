@@ -95,4 +95,8 @@ class User < ApplicationRecord
   def attachable_plain_text_representation(caption = nil)
     caption || name
   end
+  def jwt
+    payload = { user_id: id }
+    JWT.encode(payload, Rails.application.secrets.secret_key_base)
+  end
 end

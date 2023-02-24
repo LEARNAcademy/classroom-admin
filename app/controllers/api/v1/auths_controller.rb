@@ -1,20 +1,21 @@
-class Api::V1::AuthsController < Api::V1::BaseController
+class Api::V1::AuthsController < Api::BaseController
   skip_before_action :authenticate_api_token!, only: [:create]
+  
 
   # Requires email and password params
   # Turbo Native requests should sign in user with cookie for browser authentication
   # Returns an API token for the user if valid
   def create
-    user = User.find_by(email: params[:email])
-    if user&.valid_password?(params[:password])
+    user = User.find_by(email: params[:field][:email])
+    if user&.valid_password?(params[:field][:password])
       if turbo_native_app?
         sign_in_user
-        render json: {jwt: current_user.jwt }
+        render json: { jwt: current_user.jwt }
       else
-        render json: {token: token_by_name(ApiToken::DEFAULT_NAME)}
+        render json: { jwt: user.jwt }
       end
     else
-      render json: {error: error_message}, status: :unauthorized
+      render json: { error: 'Unauthorized' }, status: :unauthorized
     end
   end
 

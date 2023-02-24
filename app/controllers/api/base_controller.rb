@@ -1,18 +1,22 @@
 class Api::BaseController < ApplicationController
-  # skip_before_action :verify_authenticity_token
-  # prepend_before_action :authenticate_api_token!
+  skip_before_action :verify_authenticity_token
+  prepend_before_action :authenticate_api_token!
   before_action :authenticate_user!
   private
 
-  # def authenticate_api_token!
-  #   if (user = user_from_token)
-  #     sign_in user, store: false
-  #   else
-  #     head :unauthorized
-  #   end
-  # end
+  def authenticate_api_token!
+    if (user = user_from_token)
+      sign_in user, store: false
+    else
+      head :unauthorized
+    end
+  end
   def authenticate_user!
-    authenticate_user_for_api_v1!
+    puts 'AM I appearing?'
+    user = User.find_by(email: params[:email])
+    unless user&.valid_password?(params[:password])
+      render json: { error: 'Unauthorized' }, status: :unauthorized
+    end
   end
 
   def token_from_header
