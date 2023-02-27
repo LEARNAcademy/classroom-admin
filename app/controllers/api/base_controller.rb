@@ -2,6 +2,7 @@ class Api::BaseController < ApplicationController
   skip_before_action :verify_authenticity_token
   prepend_before_action :authenticate_api_token!
   before_action :authenticate_user!
+
   private
 
   def authenticate_api_token!
@@ -11,11 +12,11 @@ class Api::BaseController < ApplicationController
       head :unauthorized
     end
   end
+
   def authenticate_user!
-    puts 'AM I appearing?'
-    user = User.find_by(email: params[:email])
-    unless user&.valid_password?(params[:password])
-      render json: { error: 'Unauthorized' }, status: :unauthorized
+    user = User.find_by(email: params[:field][:email])
+    unless user&.valid_password?(params[:field][:password])
+      render json: {error: "Unauthorized"}, status: :unauthorized
     end
   end
 
