@@ -3,6 +3,7 @@
   padding-left: $base-spacing;
   padding-right: $base-spacing;
   text-align: center;
+  
 
   .first,
   .prev,
@@ -14,5 +15,19 @@
 
   .current {
     font-weight: $bold-font-weight;
+    color: $learnblack;
   }
+  span a {
+    color: $learnpurple;
+  }
+
+  .page {
+    a {
+      color: $learnpurple !important;
+    }
+  }
+}
+
+a {
+  color: $learnpurple;
 }
