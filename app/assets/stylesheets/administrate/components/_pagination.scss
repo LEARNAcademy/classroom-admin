@@ -15,19 +15,19 @@
 
   .current {
     font-weight: $bold-font-weight;
-    color: #101820;
+    color: $learnblack;
   }
   span a {
-    color: #A670AF;
+    color: $learnpurple;
   }
 
   .page {
     a {
-      color: #A670AF !important;
+      color: $learnpurple !important;
     }
   }
 }
 
 a {
-  color: #A670AF;
+  color: $learnpurple;
 }

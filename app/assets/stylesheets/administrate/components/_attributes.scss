@@ -18,13 +18,13 @@
   margin-bottom: $base-spacing;
   margin-left: 2rem;
   width: calc(85% - 1rem);
-  
+
   a {
     color: $learnpurple;
   }
 
   a:hover {
-    color: #101820;
+    color: $learnpurplehover;
   }
 }
 
@@ -36,10 +36,10 @@
 .cell-data {
 
   a {
-    color: #101820;
+    color: $learnblack;
   }
 
   a:hover {
-    color: $learnpurple;
+    color: $learnpurplehover;
   }
 }

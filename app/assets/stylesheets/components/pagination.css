@@ -2,7 +2,7 @@
 
 .pagination {
   @apply inline-flex flex-wrap items-center justify-start;
-  color: #A670AF;
+  color: learnpurple;
 
   .page {
     &:first-child a, &:first-child {
