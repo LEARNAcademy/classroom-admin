@@ -9,9 +9,9 @@ class Api::V1::AuthsController < Api::BaseController
     if user&.valid_password?(params[:field][:password])
       if turbo_native_app?
         sign_in_user
-        render json: {jwt: current_user.jwt}
+        render json: {jwt: current_user.jwt, name: current_user.name}
       else
-        render json: {jwt: user.jwt}
+        render json: {jwt: user.jwt, name: user.name}
       end
     else
       render json: {error: "Unauthorized"}, status: :unauthorized
