@@ -6,12 +6,13 @@ class Api::V1::AuthsController < Api::BaseController
   # Returns an API token for the user if valid
   def create
     user = User.find_by(email: params[:field][:email])
+    current_student = Student.find_by(user_id: user.id)
     if user&.valid_password?(params[:field][:password])
       if turbo_native_app?
         sign_in_user
-        render json: {jwt: current_user.jwt, name: current_user.name}
+        render json: {jwt: current_user.jwt, name: current_user.name, absences: current_student.absences}
       else
-        render json: {jwt: user.jwt, name: user.name}
+        render json: {jwt: user.jwt, name: user.name, absences: current_student.absences}
       end
     else
       render json: {error: "Unauthorized"}, status: :unauthorized
