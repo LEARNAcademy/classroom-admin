@@ -11,6 +11,12 @@
     Meet the team
   </h2>
   <% contributors = [
+    {name: "Matthew Munoz", bio: "I'm Matthew Munoz, a Software Developer based in San Diego, CA. As a former High School Teacher turned Software Developer, I am passionate about continuous learning, mentoring others, and challenging myself to acquire new skills. I had a lot of fun working on this app and I hope you enjoy it!", cohort: "2022 Hotel", linkedin: "https://www.linkedin.com/in/matthew-l-munoz/", github: "https://github.com/MLMunoz85", image:"matt.jpg"},    
+    {name: "Chris Lee", bio: "Another day another blocker. But it's okay, eventually we will know what we are doing. Thanks for listening to my tech talk.", cohort: "2022 Hotel", linkedin: "https://www.linkedin.com/in/chrisyhlee/", github: "https://github.com/chrisyhlee", image:"chris.jpg"},    
+    {name: "Monica Arganda", bio: "Hey there I'm Monica, a Full Stack Web Developer. By the time you are reading this I have graduated from Learn Academy, where I gained experience building various web applications. I find the design aspect of web development to be enjoyable and take pride in creating visually appealing user interfaces. Collaborating with the other Interns on this project was one of the highlights of my time at LEARN, we hope you enjoy.", cohort: "2022 Hotel", linkedin: "https://www.linkedin.com/in/monica-arganda/", github: "https://github.com/monicaarganda", image:"monica.jpg"},    
+    {name: "Moss Cantrell", bio: "Hi, I'm Moss! I'm a full stack web developer with a passion for web accessibility and finding creative solutions to complex problems. I love tackling challenging projects that make a positive impact on people's lives, and have had a blast working on this app!", cohort: "2022 Hotel", linkedin: "https://www.linkedin.com/in/mossc2001/", github: "https://github.com/mosscantrell", image:"moss.jpg"},    
+    {name: "Aileen Whitney", bio: "Hello! I'm a former elementary and Montessori teacher who has always had a passion for helping others learn and grow. I've recently made the exciting transition to the field of web development.  As a LEARN intern, I have really enjoyed working on this project with my fellow Hotel cohort mates. I hope you find it useful.", cohort: "2022 Hotel", linkedin: "https://www.linkedin.com/in/msawhit/", github: "https://github.com/msawhit", image:"aileen.jpeg"},    
+    {name: "Torin Jacobs", bio: "I love learning and I love LEARN Academy! Connect with me to code up some wild ideas that may just make this world a better place! Oh, and if you need someone to talk your ear off about Alaska, I'm your guy.", cohort: "2022 Hotel", linkedin: "https://www.linkedin.com/in/torinjacobs/", github: "https://github.com/TorinJacobs", image:"torin.jpg"},
     {name: "Charlie Sihaphong", bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", cohort: "2022 Golf", linkedin: "https://www.linkedin.com/in/charlie-sihaphong/", github: "https://github.com/Charlie19255", image:"charlie.png"},
     {name: "Immanuel Pettigrew", bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", cohort: "2022 Golf", linkedin: "https://www.linkedin.com/in/immanuel-pettigrew-538626258/", github: "https://github.com/Mannyplg", image:"immanuel.jpeg"},
     {name: "Anthony De Jesus Ramirez", bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", cohort: "2022 Golf", linkedin: "https://www.linkedin.com/in/anthony-ramirez-b33977240/", github: "https://github.com/Shadow090509", image:"ramirez.png"},
@@ -24,17 +30,11 @@
     {name: "Ahmed Al Khafaji", bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", cohort: "2022 Delta", linkedin: "https://www.linkedin.com/in/ahmed-alkhafaji/", github: "https://github.com/Ahmedkhafaji", image:"ahmed.png"},
     {name: "Don Yoon", bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", cohort: "2022 Charlie", linkedin: "https://www.linkedin.com/in/don-yoon/", github: "https://github.com/don-yoon", image:"don.png"},  
     {name: "Logan Ramos", bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", cohort: "2022 Charlie", linkedin: "https://www.linkedin.com/in/loganramos/", github: "https://github.com/Renzlawr", image:"logan.png"},
-    {name: "Sarah Proctor", bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", cohort: "2018 Delta", linkedin: "https://www.linkedin.com/in/sarah-proctor-sd/", github: "https://github.com/sjproctor", image:"sarah.png"},    
-    {name: "Matthew Munoz", bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", cohort: "2022 Hotel", linkedin: "https://www.linkedin.com/in/matthew-l-munoz/", github: "https://github.com/MLMunoz85", image:"matt.jpg"},    
-    {name: "Chris Lee", bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", cohort: "2022 Hotel", linkedin: "https://www.linkedin.com/in/chrisyhlee/", github: "https://github.com/chrisyhlee", image:"chris.jpg"},    
-    {name: "Monica Arganda", bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", cohort: "2022 Hotel", linkedin: "https://www.linkedin.com/in/monica-arganda/", github: "https://github.com/monicaarganda", image:"monica.jpg"},    
-    {name: "Moss Cantrell", bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", cohort: "2022 Hotel", linkedin: "https://www.linkedin.com/in/mossc2001/", github: "https://github.com/mosscantrell", image:"moss.jpg"},    
-    {name: "Aileen Whitney", bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", cohort: "2022 Hotel", linkedin: "https://www.linkedin.com/in/msawhit/", github: "https://github.com/msawhit", image:"aileen.jpeg"},    
-    {name: "Torin Jacobs", bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", cohort: "2022 Hotel", linkedin: "https://www.linkedin.com/in/torinjacobs/", github: "https://github.com/TorinJacobs", image:"torin.jpg"},    
+    {name: "Sarah Proctor", bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", cohort: "2018 Delta", linkedin: "https://www.linkedin.com/in/sarah-proctor-sd/", github: "https://github.com/sjproctor", image:"sarah.png"} 
   ] %>
   <% contributors.map do |contributor| %>
   
-  <div class="max-w-sm rounded-md border inline-block mt-5 h-[100%] justify-items-center">
+  <div class="max-w-sm rounded-md border inline-block mt-5 justify-items-center">
     <div class="flex flex-col items-center p-3">
       <img
         class="h-16 w-16 rounded-full"
@@ -45,7 +45,7 @@
         <%= contributor[:name] %>
       </h5>
       <span class="font-light leading-tight"><%= contributor[:cohort] %></span>
-      <p class="flex-wrap font-normal text-gray-700 dark:text-gray-400 text-center">
+      <p class="flex-wrap h-32 mt-4 px-2 font-normal text-gray-700 dark:text-gray-400 text-center" style="overflow: auto">
         "<%= contributor[:bio] %>"
       </p>
     </div>
