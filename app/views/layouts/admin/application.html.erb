@@ -12,7 +12,9 @@ By default, it renders:
 - Links to stylesheets and JavaScripts
 %>
 <div class="flex flex-wrap items-center justify-between px-8 py-2 h-32 w-full bg-learngray text-sm font-medium">
-  <%= render_svg "logo", styles: "fill-current text-gray-700 hover:text-gray-800" %>
+  <%= link_to root_path do %>
+    <%= render_svg "logo", styles: "fill-current text-gray-700 hover:text-gray-800" %>
+  <% end %>
 </div>
 <!DOCTYPE html>
 <html lang="<%= I18n.locale %>">
