@@ -13,14 +13,12 @@ class AssessmentDashboard < Administrate::BaseDashboard
     notes: Field::Text,
     reviewer: Field::String,
     status: Field::Select.with_options(
-      collection: ->(field) {
-                    {
-                      "0" => "Unassigned",
-                      "1" => "Pending",
-                      "2" => "Complete",
-                      "3" => "Incomplete"
-                    }
-                  }
+      collection: [
+                      "Unassigned",
+                      "Pending",
+                      "Complete",
+                      "Incomplete",
+                  ]               
     ),
     student: Field::BelongsTo,
     week: Field::Number,
