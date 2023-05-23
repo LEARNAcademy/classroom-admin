@@ -14,8 +14,8 @@ class StudentDashboard < Administrate::BaseDashboard
     student_name: Field::String,
     id: Field::Number,
     absences: Field::Select.with_options(
-      collection: 
-      (0..10).to_a 
+      collection:
+      (0..10).to_a
     ),
     cohort: Field::BelongsTo,
     email: Field::String,
