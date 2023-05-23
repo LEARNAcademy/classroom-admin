@@ -27,16 +27,19 @@ RSpec.describe Assessment, type: :model do
   it { is_expected.to be_valid }
 
   context "comprehension" do
-    it "should not be less than 0" do
-      assessment.comprehension = -1
-      is_expected.to be_invalid
-    end
-    it "should not be greater than 4" do
-      assessment.comprehension = 5
-      is_expected.to be_invalid
-    end
+      it "should not be nil" do
+        assessment.comprehension = nil
+        is_expected.to be_invalid
+      end
+      it "should not be an empty string" do
+        assessment.comprehension = ""
+        is_expected.to be_invalid
+      end
+      it "should not contain special characters" do
+        assessment.comprehension = "abc@def"
+        is_expected.to be_invalid
+      end
   end
-
   context "week" do
     it "should not be less than 1" do
       assessment.week = 0
