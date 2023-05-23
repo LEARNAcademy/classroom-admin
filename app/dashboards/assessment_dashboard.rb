@@ -10,7 +10,7 @@ class AssessmentDashboard < Administrate::BaseDashboard
   ATTRIBUTE_TYPES = {
     id: Field::Number,
     comprehension: Field::Select.with_options(
-      collection: ["Unassigned", "Novice", "Advanced_beginner", "Competent"]
+      collection: ["Unassigned", "Novice", "Advanced Beginner", "Competent"]
     ),
     notes: Field::Text,
     reviewer: Field::String,
