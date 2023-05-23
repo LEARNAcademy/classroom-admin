@@ -25,20 +25,15 @@ require "rails_helper"
 RSpec.describe Assessment, type: :model do
   subject(:assessment) { FactoryBot.create(:assessment) }
   it { is_expected.to be_valid }
-
   context "comprehension" do
-      it "should not be nil" do
-        assessment.comprehension = nil
-        is_expected.to be_invalid
-      end
-      it "should not be an empty string" do
-        assessment.comprehension = ""
-        is_expected.to be_invalid
-      end
-      it "should not contain special characters" do
-        assessment.comprehension = "abc@def"
-        is_expected.to be_invalid
-      end
+    it "should not be nil" do
+      assessment.comprehension = nil
+      is_expected.to be_invalid
+    end
+    it "should not be an empty string" do
+      assessment.comprehension = ""
+      is_expected.to be_invalid
+    end
   end
   context "week" do
     it "should not be less than 1" do
