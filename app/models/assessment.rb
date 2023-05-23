@@ -23,9 +23,9 @@
 class Assessment < ApplicationRecord
   belongs_to :student
   enum status: {Unassigned: 0, Pending: 1, Complete: 2, Incomplete: 3}, _prefix: true, _default: :unassigned
-  # enum comprehension: { unassigned: 0, novice: 1, advanced_beginner: 2, competent: 3 }, _suffix: true, _default: :unassigned
+  enum comprehension: {Unassigned: 0, Novice: 1, "Advanced Beginner": 2, Competent: 3}, _suffix: true, _default: :unassigned
 
-  validates :comprehension, presence: true, numericality: {in: 0..4}
+  validates :comprehension, presence: true
   validates :notes, presence: true
   validates :reviewer, presence: true
   validates :status, presence: true
