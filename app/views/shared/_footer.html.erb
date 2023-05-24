@@ -7,7 +7,7 @@
       <div class="ml-4 text-gray-700">© <%= Date.current.year %> <%= ENV.fetch('BUSINESS_NAME', 'LEARN') %></div>
     </div>
 
-    <div class="flex flex-wrap justify-center">
+    <div class="flex flex-wrap justify-center" style="font-size: 12px">
       <%= link_to t(".about"), about_path, class: "text-gray-700 no-underline block px-4 lg:my-0 my-2 hover:text-learnpurple" %>
       <%= link_to t(".privacy"), privacy_path, class: "text-gray-700 no-underline block lg:my-0 my-2 px-4 hover:text-learnpurple" %>
       <%= link_to t(".terms"), terms_path, class: "text-gray-700 no-underline block lg:my-0 my-2 px-4 hover:text-learnpurple" %>
