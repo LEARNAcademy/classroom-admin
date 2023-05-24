@@ -27,7 +27,7 @@ class Student < ApplicationRecord
   belongs_to :cohort
 
   belongs_to :user
-  accepts_nested_attributes_for :user[]
+  accepts_nested_attributes_for :user
 
   has_many :assessments, dependent: :destroy
   accepts_nested_attributes_for :assessments, allow_destroy: true
