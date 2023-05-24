@@ -32,6 +32,9 @@ $_search-icon-size: 1rem;
   top: 50%;
   transform: translateY(-50%);
   width: $_search-icon-size;
+  &:hover {
+    transform: translateY(-50%);
+  }
 }
 
 .search__clear-icon {
@@ -44,4 +47,8 @@ $_search-icon-size: 1rem;
   &:hover {
     fill: $action-color;
   }
+}
+
+input#search.search__input{
+  padding-left: 45px;
 }
