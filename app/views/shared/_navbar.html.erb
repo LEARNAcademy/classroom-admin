@@ -1,4 +1,4 @@
-<nav class="flex flex-wrap items-center justify-between px-8 py-2 h-32 w-full bg-learngray text-sm font-medium" data-controller="toggle">
+<nav class="flex flex-wrap items-center justify-between px-8 py-2 h-31 w-full bg-learngray text-sm font-medium" data-controller="toggle">
   <div class="flex items-center flex-shrink-0 mr-6">
     <%= link_to root_path do %>
       <%= render_svg "logo", styles: "fill-current text-gray-700 hover:text-gray-800" %>
@@ -12,22 +12,24 @@
     </button>
   </div>
 
-  <div class="flex-grow hidden w-full pb-6 lg:flex lg:w-auto lg:pb-0" data-toggle-target="toggleable">
+  <div class="hidden lg:flex w-full pb-6 lg:flex lg:w-auto lg:pb-0" data-toggle-target="toggleable">
     <div class="lg:flex-grow">
   <% if user_signed_in? %>
       <%= render "shared/left_nav" %>
 <% end %>
     </div>
     <div>
-      <%= render "shared/right_nav" %>
+      <div class="hidden lg:inline-block pt-4 pb-0">
+        <%= render "shared/right_nav" %>
+      </div>
       <% if user_signed_in? %>
         <div class="hidden lg:inline-block">
           <%= render "shared/notifications" %>
         </div>
 
         <!-- Mobile menu -->
-        <div class="fixed inset-x-0 lg:hidden mt-8 pt-4 pb-2 border-t border-gray-200 bg-white left-0 w-full z-10">
-          <div class="flex items-center px-2">
+        <div class="fixed inset-x-0 lg:hidden pt-4 pb-2 border-t border-gray-200 bg-white left-0 w-full z-100" style="margin-top: 8px">
+          <div class="flex items-center px-1">
             <div class="flex-shrink-0">
               <%= account_avatar current_account, include_user: true, class: "rounded-full h-10 w-10" %>
             </div>
