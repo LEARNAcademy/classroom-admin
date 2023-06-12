@@ -211,12 +211,7 @@
   } 
 ]
   %>
-  <% def sort_contributors(member) %>
-  <% member.sort!{|a, b| [b[:cohort], a[:name].split(" ")[1]] <=> [a[:cohort], b[:name].split(" ")[1]]} %>
-  <% end %>
-  <% sorted_contributors = sort_contributors(contributors) %> 
-
-  <% sorted_contributors.map do |contributor| %>
+  <% contributors.map do |contributor| %>
   
   <div class="max-w-sm rounded-md border inline-block mt-5 justify-items-center">
     <div class="flex flex-col items-center p-3">
