@@ -195,7 +195,7 @@
   } ,
    {
     name: "Manny Flores",
-    bio: "I’m Manny Flores, a veteran and currently a full stack web developer. As a recent graduate of a coding bootcamp I am eager to bring my newly acquired skills toward a challenging and rewarding role as a full stack web developer.",
+    bio: "I'm Manny Flores, a veteran and currently a full stack web developer. As a recent graduate of a coding bootcamp I am eager to bring my newly acquired skills toward a challenging and rewarding role as a full stack web developer.",
     cohort: "2023 Alpha",
     linkedin: "https://www.linkedin.com/in/manny-flores-0816894b/",
     github: "https://github.com/Manflo27",
@@ -211,7 +211,15 @@
   } 
 ]
   %>
-  <% contributors.map do |contributor| %>
+  
+  <% def sort_contributors(member) %>
+  <% member.sort! { |a, b| [b[:cohort], a[:name].split(" ")[1]] <=> [a[:cohort], b[:name].split(" ")[1]] } %>
+<% end %>
+
+
+<%  sorted_contributors = sort_contributors(contributors) %>
+
+  <% sorted_contributors.map do |contributor| %>
   
   <div class="max-w-sm rounded-md border inline-block mt-5 justify-items-center">
     <div class="flex flex-col items-center p-3">
