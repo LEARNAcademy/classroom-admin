@@ -34,12 +34,16 @@ and renders all form fields for a resource's editable attributes.
   <% end %>
 
   <% page.attributes(controller.action_name).each do |attribute| -%>
-    <div class="field-unit field-unit--<%= attribute.html_class %> field-unit--<%= requireness(attribute) %>">
-      <%= render_field attribute, f: f %>
+    <div class="field-unit field-unit--<%= attribute.html_class %> field-unit--<%= requireness(attribute) %>"> 
+      <% if attribute.attribute == :absences %>
+        <%= f.label :absences, class: "field-unit__label" %>
+        <%= f.number_field :absences, min: 0, max: 10, class: "field-unit__field" %>
+      <% else %>
+        <%= render_field attribute, f: f %>  
+      <% end %> 
     </div>
-  <% end -%>
-
-
+  <% end %>
+  
   <div class="form-actions">
     <%= f.submit %>
   </div>
