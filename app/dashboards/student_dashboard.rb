@@ -13,10 +13,7 @@ class StudentDashboard < Administrate::BaseDashboard
   ATTRIBUTE_TYPES = {
     student_name: Field::String,
     id: Field::Number,
-    absences: Field::Select.with_options(
-      collection:
-      (0..10).to_a
-    ),
+    absences: Field::Number,
     cohort: Field::BelongsTo,
     email: Field::String,
     assessments: Field::HasMany.with_options(
